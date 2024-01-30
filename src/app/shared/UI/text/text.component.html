@@ -1,0 +1,21 @@
+<ng-container [ngSwitch]="textTag">
+  <h1 *ngSwitchCase="'h1'" [ngClass]="[textType, classNames]">
+    <ng-container [ngTemplateOutlet]="content"></ng-container>
+  </h1>
+  <h2 *ngSwitchCase="'h2'" [ngClass]="[textType, classNames]">
+    <ng-container [ngTemplateOutlet]="content"></ng-container>
+  </h2>
+  <h3 *ngSwitchCase="'h3'" [ngClass]="[textType, classNames]">
+    <ng-container [ngTemplateOutlet]="content"></ng-container>
+  </h3>
+  <p *ngSwitchCase="'p'" [ngClass]="[textType, classNames]">
+    <ng-container> [ngTemplateOutlet]="content"</ng-container>
+  </p>
+  <span *ngSwitchCase="'span'" [ngClass]="[textType, classNames]"
+    ><ng-container [ngTemplateOutlet]="content"></ng-container
+  ></span>
+</ng-container>
+
+<ng-template #content>
+  <ng-content></ng-content>
+</ng-template>

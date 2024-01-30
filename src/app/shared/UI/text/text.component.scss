@@ -1,0 +1,74 @@
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  color: var(--Text-Primary);
+}
+
+.big_title {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 36px;
+  color: var(--Text-Primary);
+}
+
+.label {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  color: var(--Text-Primary);
+}
+
+.card_title {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: var(--Text-Primary);
+}
+
+.value {
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--Text-Primary);
+}
+
+.small_text {
+  font-size: 12px;
+  color: var(--Text-Teritary);
+  line-height: 16px;
+}
+
+.small_title {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  color: var(--Text-Primary);
+}
+
+.button_underline {
+  color: var(--Text-Secondary);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-decoration-line: underline;
+}
+
+.button_underline_small {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--Text-Teritary);
+  text-decoration: underline;
+}
+
+.button_text {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  color: var(--Text-Invert);
+}
+
+.subtitle {
+  font-size: 18px;
+  line-height: 24px;
+  color: var(--Text-Secondary);
+}
