@@ -1,0 +1,15 @@
+<label class="field" [htmlFor]="name" [formGroup]="formGroup">
+  <text *ngIf="label" [textType]="labelType">{{ label }}</text>
+  @if (tag === 'input') {
+    <input
+      [placeholder]="label"
+      [ngClass]="{ input: true, error: error }"
+      [formControlName]="name"
+      [name]="name"
+      [type]="type"
+    />
+  } @else {
+    <textarea [placeholder]="label" class="input" [formControlName]="name" [name]="name" [rows]="rows"></textarea>
+  }
+  <text *ngIf="error" [textType]="errorType">{{ error }}</text>
+</label>
