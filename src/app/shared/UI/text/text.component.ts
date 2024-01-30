@@ -12,7 +12,6 @@ import { getTagByType } from './text.utils';
 })
 export class TextComponent implements OnInit {
   @Input({ required: true }) textType!: TextType;
-  @Input() classNames?: string;
   @Input() textTag?: TextTags;
 
   ngOnInit(): void {
