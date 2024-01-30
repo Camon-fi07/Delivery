@@ -38,7 +38,15 @@
   color: var(--Text-Primary);
 }
 
-.button_underline_text {
+.button_underline {
+  color: var(--Text-Secondary);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-decoration-line: underline;
+}
+
+.button_underline_small {
   font-size: 14px;
   line-height: 20px;
   color: var(--Text-Teritary);

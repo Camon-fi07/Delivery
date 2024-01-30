@@ -5,6 +5,16 @@ import { TextType } from './text.types';
 export default {
   title: 'UI/Text',
   component: TextComponent,
+  argTypes: {
+    textType: {
+      options: Object.values(TextType),
+      mapping: Object.values(TextType),
+      control: {
+        type: 'select',
+        labels: Object.keys(TextType),
+      },
+    },
+  },
 } as Meta;
 
 const Template: StoryFn<TextComponent> = (args: TextComponent) => ({
