@@ -15,6 +15,8 @@ export class ButtonComponent {
   @Input({ required: true }) buttonStyle!: ButtonStyles;
   @Input() type: ButtonTypes = 'button';
   @Input() classNames = '';
+  @Input() width?: string;
+  @Input() height?: string;
   @Output() clickButton = new EventEmitter();
 
   get textType() {
