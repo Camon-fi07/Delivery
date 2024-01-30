@@ -28,7 +28,7 @@ export default {
 const Template: StoryFn<TextComponent> = (args: TextComponent) => ({
   props: args,
   template: `
-  <text [textType]="textType" [classNames]="classNames" [textTag]="textTag">
+  <text [textType]="textType" [textTag]="textTag">
   Рассчитать доставку
   </text>`,
 });
@@ -37,6 +37,5 @@ export const Default = Template.bind({});
 
 Default.args = {
   textType: TextType.TITLE,
-  classNames: 'test',
   textTag: TextTags.H3,
 } as Partial<TextComponent>;
