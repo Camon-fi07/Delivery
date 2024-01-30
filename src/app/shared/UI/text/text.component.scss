@@ -34,7 +34,7 @@
 
 .small_text {
   font-size: 12px;
-  color: var(--Text-Teritary);
+  color: var(--Text-Tertiary);
   line-height: 16px;
 }
 
@@ -56,7 +56,7 @@
 .button_underline_small {
   font-size: 14px;
   line-height: 20px;
-  color: var(--Text-Teritary);
+  color: var(--Text-Tertiary);
   text-decoration: underline;
 }
 
@@ -70,4 +70,10 @@
   font-size: 18px;
   line-height: 24px;
   color: var(--Text-Secondary);
+}
+
+.error {
+  color: var(--Indicator-Error);
+  font-size: 14px;
+  line-height: 20px;
 }

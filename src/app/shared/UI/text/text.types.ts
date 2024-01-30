@@ -10,6 +10,7 @@ export enum TextType {
   BUTTON_TEXT = 'button_text',
   SUBTITLE = 'subtitle',
   CARD_TITLE = 'card_title',
+  ERROR = 'error',
 }
 
 export enum TextTags {
