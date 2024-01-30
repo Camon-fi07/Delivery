@@ -16,5 +16,8 @@ export class ButtonComponent {
   @Input() type: ButtonTypes = 'button';
   @Input() classNames = '';
   @Output() clickButton = new EventEmitter();
-  textType = TextType.BUTTON_TEXT;
+
+  get textType() {
+    return this.buttonStyle === ButtonStyles.SIMPLE_UNDERLINE ? TextType.BUTTON_UNDERLINE : TextType.BUTTON_TEXT;
+  }
 }

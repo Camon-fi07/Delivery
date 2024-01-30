@@ -31,11 +31,7 @@ button {
   border: 1px solid var(--Border-Light);
 
   &:hover {
-    background-color: var(--BG-Tertiary);
-  }
-
-  &:focus {
-    border: 2px solid var(--Indicator-Focused-Alternative);
+    background-color: var(--Background-Teritary);
   }
 
   &:disabled {
