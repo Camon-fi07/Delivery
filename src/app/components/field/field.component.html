@@ -3,13 +3,23 @@
   @if (tag === 'input') {
     <input
       [placeholder]="label"
-      [ngClass]="{ input: true, error: error }"
+      [ngClass]="{ input: true, error: error, disabled: disabled }"
       [formControlName]="name"
       [name]="name"
       [type]="type"
+      [disabled]="disabled"
+      [readOnly]="disabled"
     />
   } @else {
-    <textarea [placeholder]="label" class="input" [formControlName]="name" [name]="name" [rows]="rows"></textarea>
+    <textarea
+      [placeholder]="label"
+      [disabled]="disabled"
+      [ngClass]="{ input: true, textarea: true, error: error, disabled: disabled }"
+      [formControlName]="name"
+      [name]="name"
+      [readOnly]="disabled"
+      [rows]="rows"
+    ></textarea>
   }
   <text *ngIf="error" [textType]="errorType">{{ error }}</text>
 </label>

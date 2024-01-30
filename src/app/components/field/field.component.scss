@@ -10,12 +10,31 @@
   border-radius: 8px;
   height: 48px;
   font-size: 16px;
-  padding-left: 10px;
+  padding-inline-start: 10px;
+
+  &:focus {
+    border: 2px solid var(--Indicator-Focused);
+  }
 
   &::placeholder {
     color: var(--Text-Tertiary);
     font-size: 16px;
     line-height: 24px;
+  }
+}
+
+.textarea {
+  padding-block-start: 12px;
+  padding-inline: 12px;
+  resize: none;
+  height: auto;
+}
+
+.disabled {
+  background-color: var(--Background-Disabled);
+
+  &:focus {
+    border: 1px solid var(--Border-Light);
   }
 }
 

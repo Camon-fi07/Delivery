@@ -5,6 +5,16 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export default {
   title: 'Components/Field',
   component: FieldComponent,
+  argTypes: {
+    tag: {
+      options: ['input', 'textarea'],
+      mapping: ['input', 'textarea'],
+      control: {
+        type: 'select',
+        labels: ['input', 'textarea'],
+      },
+    },
+  },
 } as Meta;
 
 const formGroup = new FormGroup({
@@ -19,14 +29,17 @@ const Template: StoryFn<FieldComponent> = (args: FieldComponent) => ({
         [tag]="tag"
         [label]="label"
         [formGroup]="formGroup"
+        [rows]="rows"
+        [disabled]="disabled"
       ></field>`,
 });
 
 export const Default = Template.bind({});
 
 Default.args = {
-  // formGroup: formGroup,
   label: 'Название',
   name: 'test',
   tag: 'input',
+  rows: 2,
+  disabled: true,
 } as Partial<FieldComponent>;
