@@ -16,6 +16,14 @@ const Template: StoryFn<DropdownComponent> = (args: DropdownComponent) => ({
       <li><button>Типа список</button></li>
       <li><button>Типа список</button></li>
       <li><button>Типа список</button></li>
+      <li><button>Типа список</button></li>
+      <li><button>Типа список</button></li>
+      <li><button>Типа список</button></li>
+      <li><button>Типа список</button></li>
+      <li><button>Типа список</button></li>
+      <li><button>Типа список</button></li>
+      <li><button>Типа список</button></li>
+      <li><button>Типа список</button></li>
     </ul>
   </dropdown>`,
 });
