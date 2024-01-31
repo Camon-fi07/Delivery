@@ -1,0 +1,10 @@
+.icon {
+  border: 1px solid var(--Border-Light);
+  border-radius: 50%;
+  transition-property: background-color;
+  transition-duration: 0.2s;
+}
+
+.chosen {
+  background-color: var(--Background-Brand);
+}

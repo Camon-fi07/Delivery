@@ -1,0 +1,13 @@
+<ul class="list">
+  <li *ngFor="let value of values; index as i">
+    <button (click)="handleChose(i)">
+      <img
+        [ngClass]="{ icon: true, chosen: chosenIndexes.includes(i) }"
+        *ngIf="withIcon"
+        src="assets/icons/check.svg"
+        alt=""
+      />
+      <text [textType]="textValueType">{{ value }}</text>
+    </button>
+  </li>
+</ul>
