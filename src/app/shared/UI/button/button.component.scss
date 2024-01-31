@@ -49,6 +49,12 @@ button {
 }
 
 .simple_underline {
+  padding: 0;
+
+  & * {
+    color: var(--Text-Quartenery);
+  }
+
   &:disabled {
     color: var(--Text-Tertiary);
   }
