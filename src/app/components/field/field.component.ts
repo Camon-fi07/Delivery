@@ -18,7 +18,7 @@ export class FieldComponent implements OnInit {
   @Input({ required: true }) name!: string;
   @Input() label?: string;
   @Input({ required: true }) formGroup!: FormGroup;
-  @Input() disabled = true;
+  @Input() placeholder?: string;
 
   labelType = TextType.LABEL;
   errorType = TextType.ERROR;
@@ -28,14 +28,27 @@ export class FieldComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.formGroup.get(this.name)?.valueChanges.subscribe(() => {
-      const errors = this.formGroup.controls[this.name].errors;
-      for (const key in errors) {
-        if (typeof errors[key] === 'boolean') this.error = key;
-        else this.error = errors[key];
-        break;
-      }
-      if (!errors) this.error = '';
+    this.setError();
+    this.formGroup.controls[this.name]?.valueChanges.subscribe(() => {
+      this.setError();
     });
+  }
+
+  setError() {
+    const errors = this.formGroup.controls[this.name].errors;
+    for (const key in errors) {
+      if (typeof errors[key] === 'boolean') this.error = key;
+      else this.error = errors[key];
+      break;
+    }
+    if (!errors) this.error = '';
+  }
+
+  get isError() {
+    return this.error && this.formGroup.controls[this.name].touched;
+  }
+
+  get isDisabled() {
+    return this.formGroup.controls[this.name].disabled;
   }
 }

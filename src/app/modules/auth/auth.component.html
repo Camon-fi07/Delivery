@@ -1,0 +1,7 @@
+<form class="auth" [formGroup]="formGroup" (ngSubmit)="handleSubmit()">
+  <text [textType]="titleType">Вход</text>
+  <text [textType]="subtitleType">Введите номер телефона для входа в личный кабинет</text>
+  <field [formGroup]="formGroup" name="phone" placeholder="Телефон"></field>
+  <field *ngIf="isPhoneSubmit" [formGroup]="formGroup" name="otp" placeholder="Проверочный код"></field>
+  <UI-button width="328px" height="56px" [type]="'submit'" [buttonStyle]="buttonStyle">Войти</UI-button>
+</form>

@@ -2,24 +2,20 @@
   <text *ngIf="label" [textType]="labelType">{{ label }}</text>
   @if (tag === 'input') {
     <input
-      [placeholder]="label"
-      [ngClass]="{ input: true, error: error, disabled: disabled }"
+      [placeholder]="placeholder"
+      [ngClass]="{ input: true, error: isError, disabled: isDisabled }"
       [formControlName]="name"
       [name]="name"
       [type]="type"
-      [disabled]="disabled"
-      [readOnly]="disabled"
     />
   } @else {
     <textarea
-      [placeholder]="label"
-      [disabled]="disabled"
-      [ngClass]="{ input: true, textarea: true, error: error, disabled: disabled }"
+      [placeholder]="placeholder"
+      [ngClass]="{ input: true, textarea: true, error: isError, disabled: isDisabled }"
       [formControlName]="name"
       [name]="name"
-      [readOnly]="disabled"
       [rows]="rows"
     ></textarea>
   }
-  <text *ngIf="error" [textType]="errorType">{{ error }}</text>
+  <text *ngIf="isError" [textType]="errorType">{{ error }}</text>
 </label>
