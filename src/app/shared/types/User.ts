@@ -1,0 +1,24 @@
+export interface SingInDto {
+  phone: string;
+  code: number;
+}
+
+export interface User {
+  phone: string;
+  _id: string;
+  firstName?: string;
+  middleName?: string;
+  lastName?: string;
+  email?: string;
+  city?: string;
+}
+
+export interface SessionResponse {
+  success: boolean;
+  user: User;
+  reason: string;
+}
+
+export interface SignInResponse extends SessionResponse {
+  token: string;
+}
