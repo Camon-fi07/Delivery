@@ -9,7 +9,7 @@ export default {
 const Template: StoryFn<DropdownComponent> = (args: DropdownComponent) => ({
   props: args,
   template: `
-  <dropdown [shortVariants]="shortVariants">
+  <dropdown [shortVariants]="shortVariants" [isCloseOnClick]="isCloseOnClick">
     <ul>
       <li><button>Типа список</button></li>
       <li><button>Типа список</button></li>
@@ -32,4 +32,5 @@ export const Default = Template.bind({});
 
 Default.args = {
   shortVariants: ['button', 'button'],
+  isCloseOnClick: false,
 } as Partial<DropdownComponent>;

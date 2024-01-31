@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { TextComponent } from 'shared/UI/text/text.component';
 import { TextType } from 'shared/UI/text/text.types';
 import { ButtonStyles } from 'shared/UI/button/button.types';
@@ -15,7 +15,10 @@ import { ButtonComponent } from 'shared/UI/button/button.component';
 export class DropdownComponent {
   @Input() chosenVariant = 'Не выбран';
   @Input() shortVariants?: string[];
+  @Input() isCloseOnClick = true;
   @Output() shortBtnClick? = new EventEmitter<number>();
+  @ViewChild('panel') panelElement!: ElementRef;
+
   isOpen = false;
   labelType = TextType.VALUE;
   buttonUnderline = ButtonStyles.SIMPLE_UNDERLINE;
@@ -26,5 +29,17 @@ export class DropdownComponent {
 
   handleShortBtnClick(index: number) {
     this.shortBtnClick?.emit(index);
+  }
+
+  handleBlur(event: FocusEvent) {
+    console.log(event);
+    if (!event.relatedTarget) this.toggle();
+    else if (this.isCloseOnClick)
+      setTimeout(() => {
+        this.toggle();
+      }, 100);
+    else {
+      this.panelElement.nativeElement.focus();
+    }
   }
 }
