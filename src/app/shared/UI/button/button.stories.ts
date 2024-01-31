@@ -20,7 +20,7 @@ export default {
 const Template: StoryFn<ButtonComponent> = (args: ButtonComponent) => ({
   props: args,
   template: `
-  <UI-button [buttonStyle]="buttonStyle" [classNames]="classNames">
+  <UI-button [buttonStyle]="buttonStyle">
   нажми
   </UI-button>`,
 });
@@ -29,6 +29,4 @@ export const Default = Template.bind({});
 
 Default.args = {
   buttonStyle: ButtonStyles.BRAND,
-  classNames: '',
-  type: 'button',
 } as Partial<ButtonComponent>;

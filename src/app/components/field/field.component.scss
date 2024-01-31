@@ -42,8 +42,8 @@
   border: 2px solid var(--Indicator-Error);
 }
 
-@media (max-width: 360px) {
-  .field > *:first-child {
+@media (max-width: 400px) {
+  .field text {
     display: none;
   }
 }

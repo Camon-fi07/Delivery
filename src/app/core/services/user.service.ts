@@ -43,7 +43,7 @@ export class UserService {
   }
 
   createOtp(phone: string) {
-    return this.http.post(OTP, { phone }).pipe();
+    return this.http.post(OTP, { phone });
   }
 
   logIn(singInDto: SingInDto) {
