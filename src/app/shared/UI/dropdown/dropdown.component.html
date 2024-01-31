@@ -1,0 +1,9 @@
+<div class="dropdown">
+  <button class="panel" (click)="toggle()">
+    <text [textType]="labelType">{{ chosenVariant }}</text>
+    <img src="assets/icons/arrow.svg" alt="ccs" />
+  </button>
+  <div *ngIf="isOpen" class="element">
+    <ng-container><ng-content></ng-content></ng-container>
+  </div>
+</div>
