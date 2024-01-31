@@ -39,9 +39,8 @@ export class AuthComponent {
       });
     } else {
       this.userService.logIn(this.formGroup.value).subscribe({
-        next: (res) => {
+        next: () => {
           this.router.navigate(['profile']);
-          console.log(res);
         },
       });
     }
