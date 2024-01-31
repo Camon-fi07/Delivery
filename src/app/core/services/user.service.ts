@@ -2,11 +2,9 @@ import { SessionResponse, SignInResponse, SingInDto, User } from 'shared/types/U
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs';
-import { OTP, SESSION } from 'shared/constants/apiUrl';
+import { OTP, SESSION, SIGNIN } from 'shared/constants/apiUrl';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class UserService {
   phone?: string;
   token?: string;
@@ -49,7 +47,7 @@ export class UserService {
   }
 
   logIn(singInDto: SingInDto) {
-    return this.http.post<SignInResponse>(OTP, singInDto).pipe(
+    return this.http.post<SignInResponse>(SIGNIN, singInDto).pipe(
       map((res) => {
         this.saveUserData(res, singInDto.phone);
         return res;

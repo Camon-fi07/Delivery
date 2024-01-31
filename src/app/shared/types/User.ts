@@ -1,15 +1,16 @@
 export interface SingInDto {
   phone: string;
-  otp: number;
+  code: number;
 }
 
 export interface User {
   phone: string;
-  firstName: string;
-  middleName: string;
-  lastName: string;
-  email: string;
-  city: string;
+  _id: string;
+  firstName?: string;
+  middleName?: string;
+  lastName?: string;
+  email?: string;
+  city?: string;
 }
 
 export interface SessionResponse {

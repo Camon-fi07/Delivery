@@ -6,6 +6,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FieldComponent } from 'components/field/field.component';
 import { TextComponent } from 'shared/UI/text/text.component';
 import { ButtonComponent } from 'shared/UI/button/button.component';
+import { UserService } from 'core/services/user.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 export default {
   title: 'Modules/Auth',
@@ -13,7 +15,8 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [AuthComponent],
-      imports: [CommonModule, ReactiveFormsModule, FieldComponent, TextComponent, ButtonComponent],
+      imports: [CommonModule, ReactiveFormsModule, FieldComponent, TextComponent, ButtonComponent, HttpClientModule],
+      providers: [UserService, HttpClient],
     }),
   ],
 } as Meta;
@@ -25,5 +28,3 @@ const Template: StoryFn<AuthModule> = (args: AuthModule) => ({
 });
 
 export const Default = Template.bind({});
-
-// Default.args = {} as Partial<AuthModule>;
