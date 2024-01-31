@@ -32,7 +32,6 @@ export class DropdownComponent {
   }
 
   handleBlur(event: FocusEvent) {
-    console.log(event);
     if (!event.relatedTarget) this.toggle();
     else if (this.isCloseOnClick)
       setTimeout(() => {
