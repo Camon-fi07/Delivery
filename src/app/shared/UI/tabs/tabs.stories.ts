@@ -9,7 +9,7 @@ export default {
 const Template: StoryFn<TabsComponent> = (args: TabsComponent) => ({
   props: args,
   template: `
-  <tabs [variants]="variants">
+  <tabs [variants]="variants" [chosenIndex]="chosenIndex">
   нажми
   </tabs>`,
 });
@@ -18,4 +18,5 @@ export const Default = Template.bind({});
 
 Default.args = {
   variants: ['first', 'second'],
+  chosenIndex: 1,
 } as Partial<TabsComponent>;
