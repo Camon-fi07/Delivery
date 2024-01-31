@@ -1,10 +1,10 @@
 .dropdown {
-  display: flex;
-  flex-direction: column;
+  width: 100%;
   position: relative;
 }
 
 .panel {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -20,6 +20,11 @@
 
 .open {
   transform: rotate(0deg);
+}
+
+.short_variants {
+  display: flex;
+  gap: 10px;
 }
 
 .content {

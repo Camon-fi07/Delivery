@@ -6,4 +6,12 @@
   <div *ngIf="isOpen" class="content">
     <ng-container><ng-content></ng-content></ng-container>
   </div>
+  <ul class="short_variants">
+    <UI-button
+      [buttonStyle]="buttonUnderline"
+      *ngFor="let item of shortVariants; index as i"
+      (clickButton)="handleShortBtnClick(i)"
+      >item</UI-button
+    >
+  </ul>
 </div>

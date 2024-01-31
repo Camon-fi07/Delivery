@@ -14,9 +14,10 @@ import { TextType } from 'shared/UI/text/text.types';
 export class ButtonComponent {
   @Input({ required: true }) buttonStyle!: ButtonStyles;
   @Input() type: ButtonTypes = 'button';
+  @Input() isDisabled = false;
   @Output() clickButton = new EventEmitter();
 
   get textType() {
-    return this.buttonStyle === ButtonStyles.SIMPLE_UNDERLINE ? TextType.BUTTON_UNDERLINE : TextType.BUTTON_TEXT;
+    return this.buttonStyle === ButtonStyles.SIMPLE_UNDERLINE ? TextType.BUTTON_UNDERLINE_SMALL : TextType.BUTTON_TEXT;
   }
 }
