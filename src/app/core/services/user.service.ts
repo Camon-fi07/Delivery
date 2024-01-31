@@ -17,7 +17,6 @@ export class UserService {
     this.getSession().subscribe({
       next: (res) => {
         this.user = res.user;
-        console.log(res);
       },
       error: this.logOut,
     });

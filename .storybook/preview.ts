@@ -4,7 +4,7 @@ import { moduleMetadata, type Preview } from '@storybook/angular';
 import { UserService } from 'core/services/user.service';
 
 @NgModule({
-  imports: [HttpClientModule],
+  imports: [HttpClientModule, UserService],
   providers: [HttpClient, UserService],
 })
 class StorybookModule {}
@@ -24,12 +24,9 @@ export const preview: Preview = {
     (Story) => ({
       moduleMetadata: {
         imports: [StorybookModule],
+        providers: [StorybookModule],
       },
       template: `<Story/>`,
-    }),
-    moduleMetadata({
-      imports: [HttpClientModule, UserService],
-      providers: [HttpClient, UserService],
     }),
   ],
 };

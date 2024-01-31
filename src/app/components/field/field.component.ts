@@ -18,7 +18,7 @@ export class FieldComponent implements OnInit {
   @Input({ required: true }) name!: string;
   @Input() label?: string;
   @Input({ required: true }) formGroup!: FormGroup;
-  @Input() placeholder?: string;
+  @Input() placeholder = '';
 
   labelType = TextType.LABEL;
   errorType = TextType.ERROR;

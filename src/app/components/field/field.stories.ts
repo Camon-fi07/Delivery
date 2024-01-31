@@ -31,6 +31,7 @@ const Template: StoryFn<FieldComponent> = (args: FieldComponent) => ({
         [formGroup]="formGroup"
         [rows]="rows"
         [disabled]="disabled"
+        [placeholder]="placeholder"
       ></field>`,
 });
 
@@ -42,4 +43,5 @@ Default.args = {
   tag: 'input',
   rows: 2,
   disabled: true,
+  placeholder: 'placeholder',
 } as Partial<FieldComponent>;
