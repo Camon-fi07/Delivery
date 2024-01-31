@@ -4,7 +4,7 @@ import { PHONE_REG } from 'shared/constants/regularExpressions';
 export const phoneValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
   const errors: ValidationErrors = {};
 
-  if (!control.value) errors['required'] = 'Ожидалось значение';
+  if (!control.value) errors['required'] = 'Поле является обязательным';
   else if (!PHONE_REG.test(control.value)) errors['format'] = 'Неправильный формат';
 
   return errors;
