@@ -21,4 +21,5 @@
     <size-dropdown (setPackage)="handlePackage($event)" *ngIf="packages" [packages]="packages"></size-dropdown>
   </div>
   <UI-button type="submit" [buttonStyle]="brandButton">Рассчитать</UI-button>
+  <text *ngIf="error" [textType]="errorType">{{ error }}</text>
 </form>

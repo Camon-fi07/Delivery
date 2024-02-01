@@ -1,5 +1,6 @@
 import { moduleMetadata, type Meta, type StoryFn } from '@storybook/angular';
 import { DeliveryCalculationModule } from './delivery-calculation.module';
+import { CalculationInfo } from 'core/services/calculationInfo.service';
 
 export default {
   title: 'Modules/DeliveryCalculation',
@@ -7,6 +8,7 @@ export default {
   decorators: [
     moduleMetadata({
       imports: [DeliveryCalculationModule],
+      providers: [CalculationInfo],
     }),
   ],
 } as Meta;

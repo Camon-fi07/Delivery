@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
-import { Package, PackageTypesResponse, SpecialPackage } from './types/Package';
+import { Package, PackageTypesResponse, SpecialPackage } from 'shared/types/Package';
 import { HttpClient } from '@angular/common/http';
 import { PACKAGE_TYPES, POINTS } from 'shared/constants/apiUrl';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { DeliveryPointsResponse, SpecialPoint } from './types/Point';
+import { DeliveryPointsResponse, SpecialPoint } from 'shared/types/Point';
 import { TextType } from 'shared/UI/text/text.types';
 import { ButtonStyles } from 'shared/UI/button/button.types';
+import { CalculationInfo } from 'core/services/calculationInfo.service';
+import { translateSpecialPointToPoint } from './utils/mappers';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'delivery-calculation',
@@ -19,11 +22,15 @@ export class DeliveryCalculationComponent {
   formGroup!: FormGroup;
   labelType = TextType.LABEL;
   titleType = TextType.TITLE;
+  errorType = TextType.ERROR;
   brandButton = ButtonStyles.BRAND;
+  error?: string;
 
   constructor(
     private http: HttpClient,
     private fb: FormBuilder,
+    private calculationInfo: CalculationInfo,
+    private router: Router,
   ) {
     this.http.get<PackageTypesResponse>(PACKAGE_TYPES).subscribe({
       next: (res) => {
@@ -58,6 +65,18 @@ export class DeliveryCalculationComponent {
   }
 
   handleSubmit() {
-    console.log(this.formGroup.value);
+    const values = this.formGroup.value;
+    this.calculationInfo
+      .calculate({
+        package: values.package,
+        senderPoint: translateSpecialPointToPoint(this.points[values.senderPoint]),
+        receiverPoint: translateSpecialPointToPoint(this.points[values.receiverPoint]),
+      })
+      .subscribe({
+        next: () => this.router.navigate(['orderMaking']),
+        error: (err) => {
+          this.error = `Произошла ошибка ${err}`;
+        },
+      });
   }
 }

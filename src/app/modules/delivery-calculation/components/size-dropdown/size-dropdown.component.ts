@@ -1,7 +1,7 @@
-import { translateSpecialPackageToPackage } from './../../utils/mappers';
+import { translateSpecialPackageToPackage } from 'modules/delivery-calculation/utils/mappers';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Package, SpecialPackage } from 'modules/delivery-calculation/types/Package';
+import { Package, SpecialPackage } from 'shared/types/Package';
 
 @Component({
   selector: 'size-dropdown',
