@@ -23,11 +23,14 @@ export class ControlsComponent implements OnInit {
   handleChose(index: number) {
     if (!this.isDisabled) this.emitChosenIndex.emit(index);
 
-    if (this.isMultiSelect) {
-      if (this.chosenIndexes.includes(index))
-        this.chosenIndexes = this.chosenIndexes.filter((value) => value !== index);
-      else this.chosenIndexes.push(index);
-    } else this.chosenIndexes[0] = index;
+    if (!this.isMultiSelect) {
+      this.chosenIndexes[0] = index;
+      return;
+    }
+
+    if (this.chosenIndexes.includes(index)) {
+      this.chosenIndexes = this.chosenIndexes.filter((value) => value !== index);
+    } else this.chosenIndexes.push(index);
   }
 
   ngOnInit(): void {
