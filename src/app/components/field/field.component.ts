@@ -40,8 +40,7 @@ export class FieldComponent implements OnInit {
     }
 
     for (const key in errors) {
-      if (typeof errors[key] === 'boolean') this.error = key;
-      else this.error = errors[key];
+      this.error = typeof errors[key] === 'boolean' ? key : errors[key];
       break;
     }
   }
