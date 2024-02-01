@@ -1,5 +1,5 @@
 <div class="dropdown">
-  <button (blur)="handleBlur($event)" class="panel" (click)="toggle()">
+  <button type="button" (blur)="handleBlur($event)" class="panel" (click)="toggle()">
     <text [textType]="labelType">{{ chosenVariant }}</text>
     <img [ngClass]="{ open: isOpen }" src="assets/icons/arrow.svg" alt="ccs" />
   </button>
@@ -9,6 +9,7 @@
 </div>
 <div class="short_variants">
   <UI-button
+    type="button"
     [buttonStyle]="buttonUnderline"
     *ngFor="let item of shortVariants; index as i"
     (clickButton)="handleShortBtnClick(i)"

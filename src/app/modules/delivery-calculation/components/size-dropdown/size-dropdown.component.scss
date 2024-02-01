@@ -5,6 +5,12 @@
 }
 
 .content {
-  max-height: 200px;
+  max-height: 300px;
   overflow: auto;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }

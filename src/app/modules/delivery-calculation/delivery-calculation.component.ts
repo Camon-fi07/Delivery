@@ -52,4 +52,12 @@ export class DeliveryCalculationComponent {
       this.formGroup.controls['receiverPoint'].setValue(index);
     }
   }
+
+  handlePackage(data: Package) {
+    this.formGroup.controls['package'].setValue(data);
+  }
+
+  handleSubmit() {
+    console.log(this.formGroup.value);
+  }
 }

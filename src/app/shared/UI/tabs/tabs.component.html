@@ -1,6 +1,6 @@
 <div class="tabs">
   <ng-container *ngFor="let item of variants; index as i">
-    <button [ngClass]="{ chosen: i === chosenIndex }" (click)="handleChange(i)">
+    <button type="button" [ngClass]="{ chosen: i === chosenIndex }" (click)="handleChange(i)">
       <text [textType]="labelType">{{ item }}</text>
     </button>
   </ng-container>

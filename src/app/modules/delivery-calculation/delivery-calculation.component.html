@@ -1,22 +1,24 @@
-<form class="delivery_calculation">
+<form class="delivery_calculation" [formGroup]="formGroup" (submit)="handleSubmit()">
   <text [textType]="titleType">Рассчитать доставку</text>
   <div class="dropdown">
     <text [textType]="labelType">Город отправки</text>
     <dropdown *ngIf="pointsNames" [chosenVariant]="pointsNames[formGroup.controls['senderPoint'].value]">
-      <controls class="list" [values]="pointsNames" (emitChosenIndex)="handlePoint($event, true)"></controls>
+      <div class="content">
+        <controls class="list" [values]="pointsNames" (emitChosenIndex)="handlePoint($event, true)"></controls>
+      </div>
     </dropdown>
   </div>
   <div class="dropdown">
     <text [textType]="labelType">Город назначения</text>
     <dropdown *ngIf="pointsNames" [chosenVariant]="pointsNames[formGroup.controls['receiverPoint'].value]">
-      <div class="list">
+      <div class="content">
         <controls [values]="pointsNames" (emitChosenIndex)="handlePoint($event, false)"></controls>
       </div>
     </dropdown>
   </div>
   <div class="dropdown">
     <text [textType]="labelType">Размер посылки</text>
-    <size-dropdown *ngIf="packages" [packages]="packages"></size-dropdown>
+    <size-dropdown (setPackage)="handlePackage($event)" *ngIf="packages" [packages]="packages"></size-dropdown>
   </div>
   <UI-button type="submit" [buttonStyle]="brandButton">Рассчитать</UI-button>
 </form>

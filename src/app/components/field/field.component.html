@@ -1,4 +1,4 @@
-<label class="field" [htmlFor]="name" [formGroup]="formGroup">
+<label [ngClass]="{ field: true, row: isRow }" [htmlFor]="name" [formGroup]="formGroup">
   <text *ngIf="label" [textType]="labelType">{{ label }}</text>
   @if (tag === 'input') {
     <input
