@@ -20,6 +20,7 @@ export class FieldComponent implements OnInit {
   @Input() label?: string;
   @Input({ required: true }) formGroup!: FormGroup;
   @Input() placeholder = '';
+  @Input() isRow = false;
   labelType = TextType.LABEL;
   errorType = TextType.ERROR;
   error!: string;
