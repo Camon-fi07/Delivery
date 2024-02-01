@@ -9,6 +9,7 @@ import { ButtonStyles } from 'shared/UI/button/button.types';
 import { CalculationInfo } from 'core/services/calculationInfo.service';
 import { translateSpecialPointToPoint } from './utils/mappers';
 import { Router } from '@angular/router';
+import { packageValidator } from 'shared/utils/validators';
 
 @Component({
   selector: 'delivery-calculation',
@@ -48,8 +49,15 @@ export class DeliveryCalculationComponent {
     this.formGroup = this.fb.group({
       senderPoint: new FormControl(0),
       receiverPoint: new FormControl(0),
-      package: new FormControl<Package | null>(null),
+      package: new FormControl<Package | null>(null, packageValidator),
     });
+  }
+
+  get packageError() {
+    const errors = this.formGroup.controls['package'].errors;
+    for (const key in errors) {
+      return errors[key];
+    }
   }
 
   handlePoint(index: number, isSender: boolean) {
@@ -65,6 +73,9 @@ export class DeliveryCalculationComponent {
   }
 
   handleSubmit() {
+    this.formGroup.markAllAsTouched();
+    if (this.formGroup.invalid) return;
+
     const values = this.formGroup.value;
     this.calculationInfo
       .calculate({

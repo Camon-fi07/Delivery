@@ -19,6 +19,11 @@
   <div class="dropdown">
     <text [textType]="labelType">Размер посылки</text>
     <size-dropdown (setPackage)="handlePackage($event)" *ngIf="packages" [packages]="packages"></size-dropdown>
+    <text
+      *ngIf="formGroup.controls['package'].errors && formGroup.controls['package'].touched"
+      [textType]="errorType"
+      >{{ packageError }}</text
+    >
   </div>
   <UI-button type="submit" [buttonStyle]="brandButton">Рассчитать</UI-button>
   <text *ngIf="error" [textType]="errorType">{{ error }}</text>
