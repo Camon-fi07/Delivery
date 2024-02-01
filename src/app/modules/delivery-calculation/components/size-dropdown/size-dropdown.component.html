@@ -1,6 +1,6 @@
 <dropdown [isCloseOnClick]="false" [chosenVariant]="chosenVariant">
   <div class="dropdown">
-    <tabs [variants]="tabsVariants" (switchVariant)="toggleIsExactlySize()"></tabs>
+    <tabs [variants]="tabsVariants" (switchVariant)="toggleIsExactlySize($event)"></tabs>
     <div [ngClass]="{ content: true, form: isExactlySize }">
       @if (isExactlySize) {
         <field

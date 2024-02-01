@@ -31,8 +31,9 @@ export class SizeDropdownComponent implements OnInit {
     });
   }
 
-  toggleIsExactlySize() {
-    this.isExactlySize = !this.isExactlySize;
+  toggleIsExactlySize(index: number) {
+    if (index) this.isExactlySize = true;
+    else this.isExactlySize = false;
   }
 
   handleChoseVariant(index: number) {

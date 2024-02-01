@@ -25,5 +25,5 @@ export const packageValidator: ValidatorFn = (control: AbstractControl): Validat
   if (!length || parseInt(length) < 1) errors['length'] = 'Длина должна быть больше нуля';
   if (!width || parseInt(width) < 1) errors['width'] = 'Ширина должна быть больше нуля';
 
-  return errors;
+  return Object.keys(errors).length ? errors : null;
 };
