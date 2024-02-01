@@ -1,0 +1,10 @@
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.content {
+  max-height: 350px;
+  overflow: auto;
+}

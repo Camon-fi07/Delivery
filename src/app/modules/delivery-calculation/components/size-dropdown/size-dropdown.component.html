@@ -1,0 +1,12 @@
+<dropdown [isCloseOnClick]="false" [chosenVariant]="chosenVariant">
+  <div class="dropdown">
+    <tabs [variants]="tabsVariants" (switchVariant)="toggleIsExactlySize()"></tabs>
+    <div class="content">
+      @if (isExactlySize) {
+        <form></form>
+      } @else {
+        <controls [values]="dropDownVariants" (emitChosenIndex)="handleChoseVariant($event)"></controls>
+      }
+    </div>
+  </div>
+</dropdown>

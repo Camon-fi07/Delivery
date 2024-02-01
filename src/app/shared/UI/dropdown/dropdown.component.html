@@ -1,5 +1,5 @@
 <div class="dropdown">
-  <button (blur)="handleBlur($event)" #panel class="panel" (click)="toggle()">
+  <button (blur)="handleBlur($event)" class="panel" (click)="toggle()">
     <text [textType]="labelType">{{ chosenVariant }}</text>
     <img [ngClass]="{ open: isOpen }" src="assets/icons/arrow.svg" alt="ccs" />
   </button>
