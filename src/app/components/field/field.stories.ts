@@ -1,17 +1,18 @@
 import type { Meta, StoryFn } from '@storybook/angular';
 import { FieldComponent } from './field.component';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FieldTags } from './field.types';
 
 export default {
   title: 'Components/Field',
   component: FieldComponent,
   argTypes: {
     tag: {
-      options: ['input', 'textarea'],
-      mapping: ['input', 'textarea'],
+      options: Object.values(FieldTags),
+      mapping: Object.values(FieldTags),
       control: {
         type: 'select',
-        labels: ['input', 'textarea'],
+        labels: Object.keys(FieldTags),
       },
     },
   },
@@ -30,7 +31,6 @@ const Template: StoryFn<FieldComponent> = (args: FieldComponent) => ({
         [label]="label"
         [formGroup]="formGroup"
         [rows]="rows"
-        [disabled]="disabled"
         [placeholder]="placeholder"
       ></field>`,
 });
@@ -40,8 +40,7 @@ export const Default = Template.bind({});
 Default.args = {
   label: 'Название',
   name: 'test',
-  tag: 'input',
+  tag: FieldTags.INPUT,
   rows: 2,
-  disabled: true,
   placeholder: 'placeholder',
 } as Partial<FieldComponent>;
