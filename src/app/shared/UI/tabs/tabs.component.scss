@@ -1,0 +1,20 @@
+.tabs {
+  background-color: var(--Background-Secondary);
+  border-radius: 14px;
+  padding: 2px;
+  height: 44px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  grid-template-rows: 1fr;
+
+  button {
+    text-align: center;
+    border-radius: 14px;
+  }
+}
+
+.chosen {
+  transition-property: background-color;
+  transition-duration: 0.15s;
+  background-color: var(--Background-Primary);
+}

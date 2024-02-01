@@ -19,24 +19,20 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
-    "lib": [
-      "ES2022",
-      "dom"
-    ],
+    "lib": ["ES2022", "dom"],
     "baseUrl": "src/app",
     "paths": {
       "components/*": ["components/*"],
-      "assets/*": ["assets/*"],
       "pages/*": ["pages/*"],
       "modules/*": ["modules/*"],
       "core/*": ["core/*"],
-      "shared/*": ["shared/*"]
-    }
+      "shared/*": ["shared/*"],
+    },
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true
-  }
+    "strictTemplates": true,
+  },
 }

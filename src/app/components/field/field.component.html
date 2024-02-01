@@ -1,0 +1,30 @@
+<label class="field" [htmlFor]="name" [formGroup]="formGroup">
+  <text *ngIf="label" [textType]="labelType">{{ label }}</text>
+  @if (tag === 'input') {
+    <input
+      [placeholder]="placeholder"
+      [ngClass]="{
+        input: true,
+        error: this.error && this.formGroup.controls[this.name].touched,
+        disabled: this.formGroup.controls[this.name].disabled || false
+      }"
+      [formControlName]="name"
+      [name]="name"
+      [type]="type"
+    />
+  } @else {
+    <textarea
+      [placeholder]="placeholder"
+      [ngClass]="{
+        input: true,
+        textarea: true,
+        error: this.error && this.formGroup.controls[this.name].touched,
+        disabled: this.formGroup.controls[this.name].disabled || false
+      }"
+      [formControlName]="name"
+      [name]="name"
+      [rows]="rows"
+    ></textarea>
+  }
+  <text *ngIf="this.error && this.formGroup.controls[this.name].touched" [textType]="errorType">{{ error }}</text>
+</label>
