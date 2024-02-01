@@ -3,7 +3,9 @@ import { Package, PackageTypesResponse, SpecialPackage } from './types/Package';
 import { HttpClient } from '@angular/common/http';
 import { PACKAGE_TYPES, POINTS } from 'shared/constants/apiUrl';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { DeliveryPointsResponse, Point, SpecialPoint } from './types/Point';
+import { DeliveryPointsResponse, SpecialPoint } from './types/Point';
+import { TextType } from 'shared/UI/text/text.types';
+import { ButtonStyles } from 'shared/UI/button/button.types';
 
 @Component({
   selector: 'delivery-calculation',
@@ -15,6 +17,9 @@ export class DeliveryCalculationComponent {
   points!: SpecialPoint[];
   pointsNames!: string[];
   formGroup!: FormGroup;
+  labelType = TextType.LABEL;
+  titleType = TextType.TITLE;
+  brandButton = ButtonStyles.BRAND;
 
   constructor(
     private http: HttpClient,
@@ -34,13 +39,17 @@ export class DeliveryCalculationComponent {
     });
 
     this.formGroup = this.fb.group({
-      senderPoint: new FormControl<Point | null>(null),
-      receivePoint: new FormControl<Point | null>(null),
+      senderPoint: new FormControl(0),
+      receiverPoint: new FormControl(0),
       package: new FormControl<Package | null>(null),
     });
   }
 
   handlePoint(index: number, isSender: boolean) {
-    console.log(index, isSender);
+    if (isSender) {
+      this.formGroup.controls['senderPoint'].setValue(index);
+    } else {
+      this.formGroup.controls['receiverPoint'].setValue(index);
+    }
   }
 }

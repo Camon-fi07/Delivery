@@ -8,6 +8,8 @@ import { ControlsComponent } from 'shared/UI/controls/controls.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FieldComponent } from 'components/field/field.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TextComponent } from 'shared/UI/text/text.component';
+import { ButtonComponent } from 'shared/UI/button/button.component';
 
 @NgModule({
   declarations: [DeliveryCalculationComponent, SizeDropdownComponent],
@@ -19,6 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     FieldComponent,
     HttpClientModule,
+    TextComponent,
+    ButtonComponent,
   ],
   exports: [DeliveryCalculationComponent, HttpClientModule],
 })

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TextComponent } from 'shared/UI/text/text.component';
 import { TextType } from 'shared/UI/text/text.types';
 import { ButtonStyles } from 'shared/UI/button/button.types';
