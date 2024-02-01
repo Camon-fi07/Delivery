@@ -24,7 +24,7 @@ export class FieldComponent implements OnInit {
   errorType = TextType.ERROR;
   error!: string;
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.setError();
     this.formGroup.controls[this.name]?.valueChanges.subscribe(() => {
       this.setError();

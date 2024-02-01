@@ -33,7 +33,7 @@ export class ControlsComponent implements OnInit {
     } else this.chosenIndexes.push(index);
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     if (this.isMultiSelect) this.withIcon = true;
   }
 }

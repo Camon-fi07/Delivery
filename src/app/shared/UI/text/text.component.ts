@@ -14,7 +14,7 @@ export class TextComponent implements OnInit {
   @Input({ required: true }) textType!: TextType;
   @Input() textTag?: TextTags;
 
-  ngOnInit(): void {
+  ngOnInit() {
     if (!this.textTag) this.textTag = getTagByType(this.textType);
   }
 }
