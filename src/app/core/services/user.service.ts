@@ -1,7 +1,7 @@
-import { SessionResponse, SignInResponse, SingInDto, User } from 'shared/types/User';
+import { OtpResponse, SessionResponse, SignInResponse, SingInDto, User } from 'shared/types/User';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs';
+import { Observable, catchError, map } from 'rxjs';
 import { OTP, SESSION, SIGNIN } from 'shared/constants/apiUrl';
 
 @Injectable()
@@ -14,16 +14,20 @@ export class UserService {
     this.phone = localStorage.getItem('phone') || undefined;
     this.token = localStorage.getItem('token') || undefined;
 
-    this.getSession().subscribe({
-      next: (res) => {
-        this.user = res.user;
-      },
-      error: this.logOut,
-    });
+    this.getSession();
   }
 
-  getSession() {
-    return this.http.get<SessionResponse>(SESSION, { headers: { Authorization: `Bearer ${this.token}` } });
+  getSession(): Observable<SessionResponse> {
+    return this.http.get<SessionResponse>(SESSION, { headers: { Authorization: `Bearer ${this.token}` } }).pipe(
+      map((res) => {
+        this.user = res.user;
+        return res;
+      }),
+      catchError((err) => {
+        this.logOut();
+        throw `ivalid data: ${err}`;
+      }),
+    );
   }
 
   logOut() {
@@ -41,11 +45,11 @@ export class UserService {
     this.user = user;
   }
 
-  createOtp(phone: string) {
-    return this.http.post(OTP, { phone });
+  createOtp(phone: string): Observable<OtpResponse> {
+    return this.http.post<OtpResponse>(OTP, { phone });
   }
 
-  logIn(singInDto: SingInDto) {
+  logIn(singInDto: SingInDto): Observable<SignInResponse> {
     return this.http.post<SignInResponse>(SIGNIN, singInDto).pipe(
       map((res) => {
         this.saveUserData(res, singInDto.phone);

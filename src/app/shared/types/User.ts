@@ -22,3 +22,9 @@ export interface SessionResponse {
 export interface SignInResponse extends SessionResponse {
   token: string;
 }
+
+export interface OtpResponse {
+  success: boolean;
+  reason: string;
+  retryDelay: number;
+}
