@@ -1,5 +1,5 @@
 <div class="view">
-  <text [textType]="TextType.TITLE">Проверка данных заказа</text>
+  <text [textType]="TextType.TITLE">Проверка данных</text>
   <div class="cards">
     <card
       (changeEmitter)="handleCardChange('user/false')"
@@ -25,5 +25,14 @@
       [values]="receiverAddress"
       [canChange]="true"
     ></card>
+  </div>
+  <div class="short_info">
+    <text [textType]="TextType.SMALL_TITLE">Итого: {{ option.price }}₽</text>
+    <text [textType]="TextType.VALUE">Тариф: {{ option.name }}</text>
+    <text [textType]="TextType.VALUE">Срок: {{ option.days }} рабочий день</text>
+  </div>
+  <div class="panel">
+    <UI-button [buttonStyle]="ButtonType.SIMPLE">Отменить</UI-button>
+    <UI-button type="button" [buttonStyle]="ButtonType.BRAND">Отправить</UI-button>
   </div>
 </div>

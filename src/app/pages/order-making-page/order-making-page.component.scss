@@ -1,11 +1,11 @@
 .wrapper {
   padding-inline: 80px;
-  padding-block-start: 50px;
+  padding-block: 50px;
 }
 
 @media (max-width: 768px) {
   .wrapper {
-    width: 95%;
+    width: 90%;
     padding-inline: 0;
     margin-inline: auto;
   }
