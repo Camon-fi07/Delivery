@@ -13,3 +13,10 @@ export interface DeliveryPointsResponse {
   reason: string;
   points: SpecialPoint[];
 }
+
+export interface Address {
+  street: string;
+  house: string;
+  appartament: string;
+  comment: string;
+}

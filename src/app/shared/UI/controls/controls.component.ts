@@ -16,8 +16,9 @@ export class ControlsComponent implements OnInit {
   @Input() isMultiSelect = false;
   @Input() withIcon = false;
   @Input() isDisabled = false;
+  @Input() defaultIndex = 0;
 
-  chosenIndexes = [0];
+  chosenIndexes = [this.defaultIndex];
   textValueType = TextType.VALUE;
 
   handleChose(index: number) {

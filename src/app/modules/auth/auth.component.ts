@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { UserService } from 'core/services/user.service';
 import { ButtonStyles } from 'shared/UI/button/button.types';
 import { TextType } from 'shared/UI/text/text.types';
-import { phoneValidator } from 'shared/utils/validators';
+import { phoneValidator, requireValidator } from 'shared/utils/validators';
 
 @Component({
   selector: 'auth',
@@ -24,7 +24,7 @@ export class AuthComponent {
     private router: Router,
   ) {
     this.formGroup = this.fb.group({
-      phone: new FormControl(this.userService.phone || '', phoneValidator),
+      phone: new FormControl(this.userService.phone || '', [requireValidator, phoneValidator]),
       code: new FormControl({ value: null, disabled: false }, [Validators.required]),
     });
   }

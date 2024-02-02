@@ -1,0 +1,11 @@
+<form class="form" [formGroup]="formGroup" (submit)="handleSubmit()">
+  <text [textType]="textType.TITLE">{{ isSender ? 'Отправитель' : 'Получатель' }}</text>
+  <field label="Фамилия" placeholder="Фамилия" [formGroup]="formGroup" name="lastname"></field>
+  <field label="Имя" placeholder="Имя" [formGroup]="formGroup" name="firstname"></field>
+  <field label="Отчество" placeholder="Отчество" [formGroup]="formGroup" name="middlename"></field>
+  <field label="Номер телефона" placeholder="Телефон" [formGroup]="formGroup" name="phone"></field>
+  <div class="panel">
+    <UI-button (clickButton)="handleBack()" [buttonStyle]="buttonType.SIMPLE">Назад</UI-button>
+    <UI-button type="submit" [buttonStyle]="buttonType.BRAND">Продолжить</UI-button>
+  </div>
+</form>

@@ -3,6 +3,13 @@ export interface SingInDto {
   code: number;
 }
 
+export interface UserDeliveryInfo {
+  firstname: string;
+  middlename?: string;
+  lastname: string;
+  phone: string;
+}
+
 export interface User {
   phone: string;
   _id: string;
@@ -27,4 +34,9 @@ export interface OtpResponse {
   success: boolean;
   reason: string;
   retryDelay: number;
+}
+
+export enum Payer {
+  RECEIVER = 'RECEIVER',
+  SENDER = 'SENDER',
 }

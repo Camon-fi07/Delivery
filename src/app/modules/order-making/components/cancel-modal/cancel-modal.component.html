@@ -1,0 +1,12 @@
+<modal [isOpen]="isOpen" (closeModal)="closeModal.emit()">
+  <div class="content">
+    <img src="assets/icons/question.svg" alt="" />
+    <text [textType]="TextType.TITLE">Отменить доставку?</text>
+    <UI-button (clickButton)="handleCloseClick()" type="button" [buttonStyle]="ButtonTypes.SIMPLE">
+      Отменить
+    </UI-button>
+    <UI-button (clickButton)="closeModal.emit()" type="button" [buttonStyle]="ButtonTypes.BRAND">
+      Не отменять
+    </UI-button>
+  </div>
+</modal>

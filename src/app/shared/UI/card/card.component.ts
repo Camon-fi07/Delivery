@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { TextComponent } from '../text/text.component';
-import { TextType } from 'shared/UI/text/text.types';
-import { Data } from './card.types';
+import { CardData } from './card.types';
 import { CommonModule } from '@angular/common';
+import { TextType } from 'shared/UI/text/text.types';
+import { TextComponent } from 'shared/UI/text/text.component';
 
 @Component({
   selector: 'card',
@@ -14,7 +14,7 @@ import { CommonModule } from '@angular/common';
 export class CardComponent {
   TextType = TextType;
   @Input({ required: true }) name!: string;
-  @Input({ required: true }) values!: Data[];
+  @Input({ required: true }) values!: CardData[];
   @Input() canChange = false;
   @Output() changeEmitter = new EventEmitter();
 }

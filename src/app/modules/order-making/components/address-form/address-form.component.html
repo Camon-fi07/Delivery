@@ -1,0 +1,18 @@
+<form class="form" [formGroup]="formGroup" (submit)="handleSubmit()">
+  <text [textType]="textType.TITLE">{{ isSender ? 'Откуда забрать' : 'Куда доставить' }}</text>
+  <field label="Улица" placeholder="Улица" [formGroup]="formGroup" name="street"></field>
+  <field label="Номер дома" placeholder="Дом" [formGroup]="formGroup" name="house"></field>
+  <field label="Номер квартиры" placeholder="Квартира" [formGroup]="formGroup" name="appartament"></field>
+  <field
+    [tag]="fieldTags.TEXTAREA"
+    label="Заметка"
+    placeholder="Заметка для курьера"
+    [formGroup]="formGroup"
+    name="comment"
+    [rows]="3"
+  ></field>
+  <div class="panel">
+    <UI-button (clickButton)="handleBack()" [buttonStyle]="buttonType.SIMPLE">Назад</UI-button>
+    <UI-button type="submit" [buttonStyle]="buttonType.BRAND">Продолжить</UI-button>
+  </div>
+</form>

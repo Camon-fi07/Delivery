@@ -7,9 +7,8 @@ import { DeliveryPointsResponse, SpecialPoint } from 'shared/types/Point';
 import { TextType } from 'shared/UI/text/text.types';
 import { ButtonStyles } from 'shared/UI/button/button.types';
 import { CalculationInfo } from 'core/services/calculationInfo.service';
-import { translateSpecialPointToPoint } from './utils/mappers';
 import { Router } from '@angular/router';
-import { packageValidator } from 'shared/utils/validators';
+import { packageValidator, requireValidator } from 'shared/utils/validators';
 
 @Component({
   selector: 'delivery-calculation',
@@ -49,7 +48,7 @@ export class DeliveryCalculationComponent {
     this.formGroup = this.fb.group({
       senderPoint: new FormControl(0),
       receiverPoint: new FormControl(0),
-      package: new FormControl<Package | null>(null, packageValidator),
+      package: new FormControl<Package | null>(null, [requireValidator, packageValidator]),
     });
   }
 
@@ -80,11 +79,11 @@ export class DeliveryCalculationComponent {
     this.calculationInfo
       .calculate({
         package: values.package,
-        senderPoint: translateSpecialPointToPoint(this.points[values.senderPoint]),
-        receiverPoint: translateSpecialPointToPoint(this.points[values.receiverPoint]),
+        senderPoint: this.points[values.senderPoint],
+        receiverPoint: this.points[values.receiverPoint],
       })
       .subscribe({
-        next: () => this.router.navigate(['orderMaking']),
+        next: () => this.router.navigate(['order']),
         error: (err) => {
           this.error = `Произошла ошибка ${err}`;
         },
