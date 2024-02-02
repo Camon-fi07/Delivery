@@ -1,0 +1,33 @@
+.card {
+  background-color: var(--Background-Secondary);
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.title {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.data {
+  display: flex;
+  column-gap: 60px;
+  row-gap: 20px;
+  flex-wrap: wrap;
+}
+
+.value {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+@media (max-width: 768px) {
+  .title {
+    justify-content: space-between;
+  }
+}
