@@ -1,0 +1,8 @@
+<form [formGroup]="formGroup">
+  <text [textType]="TextType.TITLE">Профиль</text>
+  <field [formGroup]="formGroup" name="lastname" label="Фамилия" placeholder="Фамилия"></field>
+  <field [formGroup]="formGroup" name="firstname" label="Имя" placeholder="Имя"></field>
+  <field [formGroup]="formGroup" name="middlename" label="Отчество" placeholder="Отчество"></field>
+  <field [formGroup]="formGroup" name="phone" label="Номер телефона" placeholder="Телефон"></field>
+  <field [formGroup]="formGroup" name="email" label="Email" placeholder="Email"></field>
+</form>
