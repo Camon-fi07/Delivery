@@ -1,0 +1,14 @@
+<div class="card">
+  <div class="title">
+    <text [textType]="TextType.CARD_TITLE">{{ name }}</text>
+    <button *ngIf="canChange" (click)="changeEmitter.emit()" type="button">
+      <img src="assets/icons/pencil.svg" alt="" />
+    </button>
+  </div>
+  <ul class="data">
+    <li *ngFor="let item of values" class="value">
+      <text [textType]="TextType.SMALL_TEXT">{{ item.name }}</text>
+      <text [textType]="TextType.VALUE">{{ item.value }}</text>
+    </li>
+  </ul>
+</div>
