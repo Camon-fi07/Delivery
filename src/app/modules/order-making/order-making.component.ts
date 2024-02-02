@@ -7,8 +7,6 @@ import { Router } from '@angular/router';
   styleUrl: './order-making.component.scss',
 })
 export class OrderMakingComponent {
-  title = 'fwaf';
-
   constructor(private router: Router) {
     router.navigate(['order/first']);
   }
