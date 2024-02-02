@@ -1,6 +1,8 @@
 .modal {
   position: fixed;
   min-width: 100vw;
+  top: 0;
+  left: 0;
   min-height: 100vh;
   background-color: var(--Background-Blur);
   backdrop-filter: blur(2px);

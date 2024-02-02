@@ -3,4 +3,16 @@
   flex-direction: column;
   gap: 20px;
   align-items: center;
+  justify-content: center;
+  padding-inline: 80px;
+  height: 100%;
+
+  & > {
+    width: 100%;
+    text-align: center;
+  }
+
+  & img {
+    width: auto;
+  }
 }

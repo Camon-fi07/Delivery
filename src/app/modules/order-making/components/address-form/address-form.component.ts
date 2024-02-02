@@ -30,7 +30,10 @@ export class AddressFormComponent {
     this.route.params.subscribe((params) => {
       this.isSender = params['isSender'] === 'true';
 
-      if (this.formGroup?.value) this.formGroup.reset();
+      if (this.formGroup?.value) {
+        this.formGroup.reset();
+        this.formGroup.controls['comment'].setValue('');
+      }
     });
 
     this.formGroup = this.fb.group({

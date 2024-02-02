@@ -21,7 +21,6 @@ export class OrderInfoService {
   ) {}
 
   createOrder() {
-    console.log(this.calculationInfo.receiverPoint, this.calculationInfo.senderPoint);
     const data: OrderDto = {
       senderPoint: this.calculationInfo.senderPoint!,
       receiverPoint: this.calculationInfo.receiverPoint!,
