@@ -36,6 +36,5 @@ export class PaidComponent {
 
   handleChose(index: number) {
     this.orderInfoService.payer = this.values[index].type;
-    console.log(this.orderInfoService.payer);
   }
 }

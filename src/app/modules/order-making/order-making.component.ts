@@ -8,6 +8,6 @@ import { Router } from '@angular/router';
 })
 export class OrderMakingComponent {
   constructor(private router: Router) {
-    router.navigate(['order/paid']);
+    router.navigate(['order/view']);
   }
 }

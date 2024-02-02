@@ -14,9 +14,17 @@ import { ButtonComponent } from 'shared/UI/button/button.component';
 import { AddressFormComponent } from './components/address-form/address-form.component';
 import { ControlsComponent } from 'shared/UI/controls/controls.component';
 import { PaidComponent } from './components/paid/paid.component';
+import { ViewComponent } from './components/view/view.component';
 
 @NgModule({
-  declarations: [OrderMakingComponent, OptionsComponent, UserInfoComponent, AddressFormComponent, PaidComponent],
+  declarations: [
+    OrderMakingComponent,
+    OptionsComponent,
+    UserInfoComponent,
+    AddressFormComponent,
+    PaidComponent,
+    ViewComponent,
+  ],
   imports: [
     CommonModule,
     TextComponent,

@@ -1,0 +1,55 @@
+<div class="view">
+  <text [textType]="TextType.TITLE">Проверка данных заказа</text>
+  <div class="card">
+    <text [textType]="TextType.CARD_TITLE">Получатель</text>
+    <div class="data">
+      <div class="value">
+        <text [textType]="TextType.SMALL_TEXT">ФИО</text>
+        <text [textType]="TextType.VALUE">{{ receiver.lastname + receiver.firstname + receiver.middlename }}</text>
+      </div>
+      <div class="value">
+        <text [textType]="TextType.SMALL_TEXT">Телефон</text>
+        <text [textType]="TextType.VALUE">{{ receiver.phone }}</text>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <text [textType]="TextType.CARD_TITLE">Отправитель</text>
+    <div class="data">
+      <div class="value">
+        <text [textType]="TextType.SMALL_TEXT">ФИО</text>
+        <text [textType]="TextType.VALUE">{{ sender.lastname + sender.firstname + sender.middlename }}</text>
+      </div>
+      <div class="value">
+        <text [textType]="TextType.SMALL_TEXT">Телефон</text>
+        <text [textType]="TextType.VALUE">{{ sender.phone }}</text>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <text [textType]="TextType.CARD_TITLE">Откуда забрать</text>
+    <div class="data">
+      <div class="value">
+        <text [textType]="TextType.SMALL_TEXT">Адрес</text>
+        <text [textType]="TextType.VALUE">{{ senderAddress.street + ', д.' + senderAddress.appartament }}</text>
+      </div>
+      <div *ngIf="senderAddress.comment" class="value">
+        <text [textType]="TextType.SMALL_TEXT">Заметка</text>
+        <text [textType]="TextType.VALUE">{{ senderAddress.comment }}</text>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <text [textType]="TextType.CARD_TITLE">Куда доставить</text>
+    <div class="data">
+      <div class="value">
+        <text [textType]="TextType.SMALL_TEXT">Адрес</text>
+        <text [textType]="TextType.VALUE">{{ receiverAddress.street + ', д.' + receiverAddress.appartament }}</text>
+      </div>
+      <div *ngIf="receiverAddress.comment" class="value">
+        <text [textType]="TextType.SMALL_TEXT">Заметка</text>
+        <text [textType]="TextType.VALUE">{{ receiverAddress.comment }}</text>
+      </div>
+    </div>
+  </div>
+</div>
