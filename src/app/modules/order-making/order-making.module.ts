@@ -15,6 +15,7 @@ import { AddressFormComponent } from './components/address-form/address-form.com
 import { ControlsComponent } from 'shared/UI/controls/controls.component';
 import { PaidComponent } from './components/paid/paid.component';
 import { ViewComponent } from './components/view/view.component';
+import { CardComponent } from 'shared/UI/card/card.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ViewComponent } from './components/view/view.component';
   ],
   imports: [
     CommonModule,
+    CardComponent,
     TextComponent,
     RouterOutlet,
     FieldComponent,

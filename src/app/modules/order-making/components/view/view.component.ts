@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { OrderInfoService } from 'modules/order-making/services/order-info.service';
+import { translateUserInfo, translateAddress } from 'modules/order-making/utils/mappers';
+import { CardData } from 'shared/UI/card/card.types';
 import { TextType } from 'shared/UI/text/text.types';
-import { Address } from 'shared/types/Point';
-import { UserDeliveryInfo } from 'shared/types/User';
 
 @Component({
   selector: 'view',
@@ -11,15 +12,22 @@ import { UserDeliveryInfo } from 'shared/types/User';
 })
 export class ViewComponent {
   TextType = TextType;
-  sender!: UserDeliveryInfo;
-  receiver!: UserDeliveryInfo;
-  senderAddress!: Address;
-  receiverAddress!: Address;
+  sender!: CardData[];
+  receiver!: CardData[];
+  senderAddress!: CardData[];
+  receiverAddress!: CardData[];
 
-  constructor(private orderInfoService: OrderInfoService) {
-    this.sender = orderInfoService.sender!;
-    this.receiver = orderInfoService.receiver!;
-    this.senderAddress = orderInfoService.senderAddress!;
-    this.receiverAddress = orderInfoService.receiverAddress!;
+  constructor(
+    private orderInfoService: OrderInfoService,
+    private router: Router,
+  ) {
+    this.sender = translateUserInfo(orderInfoService.sender!);
+    this.receiver = translateUserInfo(orderInfoService.receiver!);
+    this.senderAddress = translateAddress(orderInfoService.senderAddress!);
+    this.receiverAddress = translateAddress(orderInfoService.receiverAddress!);
+  }
+
+  handleCardChange(url: string) {
+    this.router.navigate([`order/${url}`]);
   }
 }
