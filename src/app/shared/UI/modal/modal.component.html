@@ -1,0 +1,8 @@
+<div (click)="handleModalClick($event)" *ngIf="isOpen" class="modal">
+  <div class="content">
+    <button (click)="closeModal.emit()" type="button" class="close">
+      <img src="assets/icons/cross.svg" alt="close" />
+    </button>
+    <ng-content></ng-content>
+  </div>
+</div>
