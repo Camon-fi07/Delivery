@@ -34,6 +34,7 @@
   <div class="panel">
     <UI-button (clickButton)="toggleIsCancel()" [buttonStyle]="ButtonType.SIMPLE">Отменить</UI-button>
     <UI-button (clickButton)="handleSubmit()" type="button" [buttonStyle]="ButtonType.BRAND">Отправить</UI-button>
+    <text *ngIf="error" [textType]="TextType.ERROR">{{ error }}</text>
   </div>
   <success-modal [isOpen]="isSuccess"></success-modal>
   <cancel-modal [isOpen]="isCancel" (closeModal)="toggleIsCancel()"></cancel-modal>

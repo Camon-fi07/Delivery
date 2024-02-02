@@ -23,6 +23,7 @@ export class ViewComponent {
   option!: DeliveryOption;
   isSuccess = false;
   isCancel = false;
+  error?: string;
 
   constructor(
     private orderInfoService: OrderInfoService,
@@ -50,9 +51,11 @@ export class ViewComponent {
 
   handleSubmit() {
     this.orderInfoService.createOrder().subscribe({
-      next: (res) => console.log(res),
-      error: (err) => {
-        console.log(err);
+      next: () => {
+        this.isSuccess = true;
+      },
+      error: () => {
+        this.error = `Произошла ошибка, попробуйте позже`;
       },
     });
   }
