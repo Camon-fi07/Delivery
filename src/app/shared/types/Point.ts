@@ -17,6 +17,6 @@ export interface DeliveryPointsResponse {
 export interface Address {
   street: string;
   house: string;
-  appartament?: string;
-  comment?: string;
+  appartament: string;
+  comment: string;
 }

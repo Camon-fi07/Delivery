@@ -16,6 +16,9 @@ import { ControlsComponent } from 'shared/UI/controls/controls.component';
 import { PaidComponent } from './components/paid/paid.component';
 import { ViewComponent } from './components/view/view.component';
 import { CardComponent } from 'shared/UI/card/card.component';
+import { SuccessModalComponent } from './components/success-modal/success-modal.component';
+import { CancelModalComponent } from './components/cancel-modal/cancel-modal.component';
+import { ModalComponent } from 'shared/UI/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,8 @@ import { CardComponent } from 'shared/UI/card/card.component';
     AddressFormComponent,
     PaidComponent,
     ViewComponent,
+    SuccessModalComponent,
+    CancelModalComponent,
   ],
   imports: [
     CommonModule,
@@ -35,6 +40,7 @@ import { CardComponent } from 'shared/UI/card/card.component';
     ReactiveFormsModule,
     ButtonComponent,
     ControlsComponent,
+    ModalComponent,
     RouterModule.forChild(orderMakingRoutes),
   ],
   exports: [OrderMakingComponent],

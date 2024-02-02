@@ -1,16 +1,38 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { DeliveryOption, DeliveryType } from 'shared/types/Calc';
+import { CalculationInfo } from 'core/services/calculationInfo.service';
+import { ORDER } from 'shared/constants/apiUrl';
+import { DeliveryOption, OrderDto } from 'shared/types/Calc';
 import { Address } from 'shared/types/Point';
 import { Payer, UserDeliveryInfo } from 'shared/types/User';
 
 @Injectable()
 export class OrderInfoService {
-  option?: DeliveryOption = { days: 1, id: 'awf', name: 'fawf', price: 23, type: DeliveryType.DEFAULT };
-  sender?: UserDeliveryInfo = { firstname: 'few', lastname: 'fawf', phone: '4234234234' };
-  receiver?: UserDeliveryInfo = { firstname: 'few', lastname: 'fawf', phone: '4234234234' };
-  senderAddress?: Address = { house: 'few', street: 'fawf', appartament: '4234234234' };
-  receiverAddress?: Address = { house: 'few', street: 'fawf', appartament: '4234234234', comment: 'fsefsefl' };
+  option?: DeliveryOption;
+  sender?: UserDeliveryInfo;
+  receiver?: UserDeliveryInfo;
+  senderAddress?: Address;
+  receiverAddress?: Address;
   payer = Payer.SENDER;
 
-  constructor() {}
+  constructor(
+    private http: HttpClient,
+    private calculationInfo: CalculationInfo,
+  ) {}
+
+  createOrder() {
+    console.log(this.calculationInfo.receiverPoint, this.calculationInfo.senderPoint);
+    const data: OrderDto = {
+      senderPoint: this.calculationInfo.senderPoint!,
+      receiverPoint: this.calculationInfo.receiverPoint!,
+      option: this.option!,
+      payer: this.payer,
+      receiver: this.receiver!,
+      receiverAddress: this.receiverAddress!,
+      sender: this.sender!,
+      senderAddress: this.senderAddress!,
+    };
+
+    return this.http.post(ORDER, data);
+  }
 }

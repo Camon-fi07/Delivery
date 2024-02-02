@@ -4,6 +4,7 @@ import { TextType } from 'shared/UI/text/text.types';
 import { Location } from '@angular/common';
 import { ButtonStyles } from 'shared/UI/button/button.types';
 import { Payer } from 'shared/types/User';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'paid',
@@ -22,6 +23,7 @@ export class PaidComponent {
   constructor(
     private location: Location,
     private orderInfoService: OrderInfoService,
+    private router: Router,
   ) {
     this.defaultIndex = this.values.findIndex((value) => value.type === orderInfoService.payer);
   }
@@ -36,5 +38,9 @@ export class PaidComponent {
 
   handleChose(index: number) {
     this.orderInfoService.payer = this.values[index].type;
+  }
+
+  handleContinue() {
+    this.router.navigate(['order/view']);
   }
 }

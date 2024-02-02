@@ -41,10 +41,10 @@ export class AddressFormComponent {
         ),
         appartament: new FormControl(
           this.isSender ? this.orderInfo.senderAddress?.appartament : this.orderInfo.receiverAddress?.appartament,
-          addressValidator,
+          [requireValidator, addressValidator],
         ),
         comment: new FormControl(
-          this.isSender ? this.orderInfo.senderAddress?.comment : this.orderInfo.receiverAddress?.comment,
+          (this.isSender ? this.orderInfo.senderAddress?.comment : this.orderInfo.receiverAddress?.comment) || '',
           commentValidator,
         ),
       });

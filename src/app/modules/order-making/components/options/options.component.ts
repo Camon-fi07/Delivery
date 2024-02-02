@@ -1,6 +1,6 @@
 import { CalculationInfo } from 'core/services/calculationInfo.service';
 import { Component } from '@angular/core';
-import { DeliveryOption, DeliveryType } from 'shared/types/Calc';
+import { DeliveryOption } from 'shared/types/Calc';
 import { TextType } from 'shared/UI/text/text.types';
 import { OrderInfoService } from 'modules/order-making/services/order-info.service';
 import { Router } from '@angular/router';
@@ -20,10 +20,7 @@ export class OptionsComponent {
     private orderInfo: OrderInfoService,
     private router: Router,
   ) {
-    this.options = [
-      { days: 1, id: 'awf', name: 'fawf', price: 23, type: DeliveryType.DEFAULT },
-      { days: 1, id: 'awf', name: 'fawf', price: 23, type: DeliveryType.EXPRESS },
-    ];
+    this.options = calculationInfo.options;
   }
 
   handleChose(option: DeliveryOption) {

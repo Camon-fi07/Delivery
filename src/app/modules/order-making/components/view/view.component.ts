@@ -21,6 +21,8 @@ export class ViewComponent {
   senderAddress!: CardData[];
   receiverAddress!: CardData[];
   option!: DeliveryOption;
+  isSuccess = false;
+  isCancel = false;
 
   constructor(
     private orderInfoService: OrderInfoService,
@@ -34,11 +36,24 @@ export class ViewComponent {
     this.option = orderInfoService.option!;
   }
 
-  handleCardChange(url: string) {
+  toggleIsCancel() {
+    this.isCancel = !this.isCancel;
+  }
+
+  handleCardEditClick(url: string) {
     this.router.navigate([`order/${url}`]);
   }
 
   handleBack() {
     this.location.back();
+  }
+
+  handleSubmit() {
+    this.orderInfoService.createOrder().subscribe({
+      next: (res) => console.log(res),
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 }

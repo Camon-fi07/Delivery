@@ -2,25 +2,25 @@
   <text [textType]="TextType.TITLE">Проверка данных</text>
   <div class="cards">
     <card
-      (changeEmitter)="handleCardChange('user/false')"
+      (changeEmitter)="handleCardEditClick('user/false')"
       name="Получатель"
       [values]="receiver"
       [canChange]="true"
     ></card>
     <card
-      (changeEmitter)="handleCardChange('user/true')"
+      (changeEmitter)="handleCardEditClick('user/true')"
       name="Отправитель"
       [values]="sender"
       [canChange]="true"
     ></card>
     <card
-      (changeEmitter)="handleCardChange('address/true')"
+      (changeEmitter)="handleCardEditClick('address/true')"
       name="Откуда забрать"
       [values]="senderAddress"
       [canChange]="true"
     ></card>
     <card
-      (changeEmitter)="handleCardChange('address/false')"
+      (changeEmitter)="handleCardEditClick('address/false')"
       name="Куда доставить"
       [values]="receiverAddress"
       [canChange]="true"
@@ -32,7 +32,9 @@
     <text [textType]="TextType.VALUE">Срок: {{ option.days }} рабочий день</text>
   </div>
   <div class="panel">
-    <UI-button [buttonStyle]="ButtonType.SIMPLE">Отменить</UI-button>
-    <UI-button type="button" [buttonStyle]="ButtonType.BRAND">Отправить</UI-button>
+    <UI-button (clickButton)="toggleIsCancel()" [buttonStyle]="ButtonType.SIMPLE">Отменить</UI-button>
+    <UI-button (clickButton)="handleSubmit()" type="button" [buttonStyle]="ButtonType.BRAND">Отправить</UI-button>
   </div>
+  <success-modal [isOpen]="isSuccess"></success-modal>
+  <cancel-modal [isOpen]="isCancel" (closeModal)="toggleIsCancel()"></cancel-modal>
 </div>

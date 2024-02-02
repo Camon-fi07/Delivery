@@ -1,5 +1,6 @@
 import { Package } from './Package';
-import { Point } from './Point';
+import { Address, Point, SpecialPoint } from './Point';
+import { Payer, UserDeliveryInfo } from './User';
 
 export enum DeliveryType {
   DEFAULT = 'DEFAULT',
@@ -20,8 +21,25 @@ export interface CalculateDeliveryDto {
   receiverPoint: Point;
 }
 
+export interface CalculateData {
+  package: Package;
+  senderPoint: SpecialPoint;
+  receiverPoint: SpecialPoint;
+}
+
 export interface CalculateDeliveryResponse {
   success: boolean;
   reason: string;
   options: DeliveryOption[];
+}
+
+export interface OrderDto {
+  senderPoint: SpecialPoint;
+  receiverPoint: SpecialPoint;
+  senderAddress: Address;
+  receiverAddress: Address;
+  option: DeliveryOption;
+  payer: Payer;
+  sender: UserDeliveryInfo;
+  receiver: UserDeliveryInfo;
 }
