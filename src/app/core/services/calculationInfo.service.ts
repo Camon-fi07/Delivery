@@ -4,7 +4,7 @@ import { Observable, map } from 'rxjs';
 import { CALC } from 'shared/constants/apiUrl';
 import { CalculateDeliveryDto, CalculateDeliveryResponse, DeliveryOption } from 'shared/types/Calc';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class CalculationInfo {
   options: DeliveryOption[] = [];
   calculateData?: CalculateDeliveryDto;

@@ -4,7 +4,9 @@ import { Injectable } from '@angular/core';
 import { Observable, catchError, map } from 'rxjs';
 import { OTP, SESSION, SIGNIN } from 'shared/constants/apiUrl';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class UserService {
   phone?: string;
   token?: string;

@@ -1,8 +1,15 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'order-making',
   templateUrl: './order-making.component.html',
   styleUrl: './order-making.component.scss',
 })
-export class OrderMakingComponent {}
+export class OrderMakingComponent {
+  title = 'fwaf';
+
+  constructor(private router: Router) {
+    router.navigate(['order/first']);
+  }
+}
