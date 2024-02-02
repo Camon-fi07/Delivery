@@ -3,17 +3,13 @@
   <div class="dropdown">
     <text [textType]="labelType">Город отправки</text>
     <dropdown *ngIf="pointsNames" [chosenVariant]="pointsNames[formGroup.controls['senderPoint'].value]">
-      <div class="content">
-        <controls class="list" [values]="pointsNames" (emitChosenIndex)="handlePoint($event, true)"></controls>
-      </div>
+      <controls class="list" [values]="pointsNames" (emitChosenIndex)="handlePoint($event, true)"></controls>
     </dropdown>
   </div>
   <div class="dropdown">
     <text [textType]="labelType">Город назначения</text>
     <dropdown *ngIf="pointsNames" [chosenVariant]="pointsNames[formGroup.controls['receiverPoint'].value]">
-      <div class="content">
-        <controls [values]="pointsNames" (emitChosenIndex)="handlePoint($event, false)"></controls>
-      </div>
+      <controls [values]="pointsNames" (emitChosenIndex)="handlePoint($event, false)"></controls>
     </dropdown>
   </div>
   <div class="dropdown">

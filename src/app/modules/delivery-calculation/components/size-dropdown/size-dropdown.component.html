@@ -1,8 +1,8 @@
 <dropdown [isCloseOnClick]="false" [chosenVariant]="chosenVariant">
   <div class="dropdown">
-    <tabs [variants]="tabsVariants" (switchVariant)="toggleIsExactlySize()"></tabs>
-    <div [ngClass]="{ content: true, form: isExactlySize }">
-      @if (isExactlySize) {
+    <tabs [variants]="tabsVariants" (switchVariant)="toggleIsExactlySize($event)"></tabs>
+    @if (isExactlySize) {
+      <div class="form">
         <field
           [isRow]="true"
           type="number"
@@ -28,9 +28,9 @@
           name="height"
         ></field>
         <field [isRow]="true" type="number" placeholder="кг" label="Вес" [formGroup]="formGroup" name="weight"></field>
-      } @else {
-        <controls [values]="dropDownVariants" (emitChosenIndex)="handleChoseVariant($event)"></controls>
-      }
-    </div>
+      </div>
+    } @else {
+      <controls [values]="dropDownVariants" (emitChosenIndex)="handleChoseVariant($event)"></controls>
+    }
   </div>
 </dropdown>

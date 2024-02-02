@@ -3,6 +3,7 @@
     <button
       [ngClass]="{ item: true, itemWithIcon: withIcon, chosenButton: !withIcon && chosenIndexes.includes(index) }"
       (click)="handleChose(index)"
+      type="button"
     >
       <img
         [ngClass]="{ icon: true, chosen: chosenIndexes.includes(index) }"

@@ -1,9 +1,9 @@
-<div class="dropdown">
+<div #content class="dropdown">
   <button type="button" (blur)="handleBlur($event)" class="panel" (click)="toggle()">
     <text [textType]="labelType">{{ chosenVariant }}</text>
     <img [ngClass]="{ open: isOpen }" src="assets/icons/arrow.svg" alt="ccs" />
   </button>
-  <div *ngIf="isOpen" class="content">
+  <div [ngStyle]="{ height: contentHeight + 'px' }" [ngClass]="{ content: true, hidden: !isOpen, top: isTopOpen }">
     <ng-container><ng-content></ng-content></ng-container>
   </div>
 </div>
