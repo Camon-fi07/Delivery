@@ -35,3 +35,8 @@ export interface OtpResponse {
   reason: string;
   retryDelay: number;
 }
+
+export enum Payer {
+  RECEIVER = 'RECEIVER',
+  SENDER = 'SENDER',
+}

@@ -12,9 +12,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FieldComponent } from 'components/field/field.component';
 import { ButtonComponent } from 'shared/UI/button/button.component';
 import { AddressFormComponent } from './components/address-form/address-form.component';
+import { ControlsComponent } from 'shared/UI/controls/controls.component';
+import { PaidComponent } from './components/paid/paid.component';
 
 @NgModule({
-  declarations: [OrderMakingComponent, OptionsComponent, UserInfoComponent, AddressFormComponent],
+  declarations: [OrderMakingComponent, OptionsComponent, UserInfoComponent, AddressFormComponent, PaidComponent],
   imports: [
     CommonModule,
     TextComponent,
@@ -22,6 +24,7 @@ import { AddressFormComponent } from './components/address-form/address-form.com
     FieldComponent,
     ReactiveFormsModule,
     ButtonComponent,
+    ControlsComponent,
     RouterModule.forChild(orderMakingRoutes),
   ],
   exports: [OrderMakingComponent],
