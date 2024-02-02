@@ -11,9 +11,10 @@ import { UserInfoComponent } from './components/user-info/user-info.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FieldComponent } from 'components/field/field.component';
 import { ButtonComponent } from 'shared/UI/button/button.component';
+import { AddressFormComponent } from './components/address-form/address-form.component';
 
 @NgModule({
-  declarations: [OrderMakingComponent, OptionsComponent, UserInfoComponent],
+  declarations: [OrderMakingComponent, OptionsComponent, UserInfoComponent, AddressFormComponent],
   imports: [
     CommonModule,
     TextComponent,

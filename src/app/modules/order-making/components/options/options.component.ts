@@ -28,6 +28,6 @@ export class OptionsComponent {
 
   handleChose(option: DeliveryOption) {
     this.orderInfo.option = option;
-    this.router.navigate(['order/second/true']);
+    this.router.navigate(['order/user/true']);
   }
 }

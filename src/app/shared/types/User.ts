@@ -5,7 +5,7 @@ export interface SingInDto {
 
 export interface UserDeliveryInfo {
   firstname: string;
-  middlename: string;
+  middlename?: string;
   lastname: string;
   phone: string;
 }

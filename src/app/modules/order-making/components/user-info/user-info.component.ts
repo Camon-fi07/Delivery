@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { OrderInfoService } from 'modules/order-making/services/order-info.service';
 import { ButtonStyles } from 'shared/UI/button/button.types';
 import { TextType } from 'shared/UI/text/text.types';
-import { nameValidator, phoneValidator } from 'shared/utils/validators';
+import { nameValidator, phoneValidator, requireValidator } from 'shared/utils/validators';
 import { Location } from '@angular/common';
 
 @Component({
@@ -31,20 +31,20 @@ export class UserInfoComponent {
       this.formGroup = this.fb.group({
         firstname: new FormControl(
           this.isSender ? this.orderInfo.sender?.firstname : this.orderInfo.receiver?.firstname,
-          nameValidator,
+          [requireValidator, nameValidator],
         ),
-        lastname: new FormControl(
-          this.isSender ? this.orderInfo.sender?.lastname : this.orderInfo.receiver?.lastname,
+        lastname: new FormControl(this.isSender ? this.orderInfo.sender?.lastname : this.orderInfo.receiver?.lastname, [
+          requireValidator,
           nameValidator,
-        ),
+        ]),
         middlename: new FormControl(
           this.isSender ? this.orderInfo.sender?.middlename : this.orderInfo.receiver?.middlename,
           nameValidator,
         ),
-        phone: new FormControl(
-          this.isSender ? this.orderInfo.sender?.phone : this.orderInfo.receiver?.phone,
+        phone: new FormControl(this.isSender ? this.orderInfo.sender?.phone : this.orderInfo.receiver?.phone, [
+          requireValidator,
           phoneValidator,
-        ),
+        ]),
       });
     });
   }
@@ -56,7 +56,8 @@ export class UserInfoComponent {
     if (this.isSender) this.orderInfo.sender = this.formGroup.value;
     else this.orderInfo.receiver = this.formGroup.value;
 
-    this.router.navigate(['order/second/false']);
+    if (this.isSender) this.router.navigate(['order/user/false']);
+    else this.router.navigate(['order/address/true']);
   }
 
   handleBack() {

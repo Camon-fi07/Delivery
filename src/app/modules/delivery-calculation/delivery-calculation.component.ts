@@ -9,7 +9,7 @@ import { ButtonStyles } from 'shared/UI/button/button.types';
 import { CalculationInfo } from 'core/services/calculationInfo.service';
 import { translateSpecialPointToPoint } from './utils/mappers';
 import { Router } from '@angular/router';
-import { packageValidator } from 'shared/utils/validators';
+import { packageValidator, requireValidator } from 'shared/utils/validators';
 
 @Component({
   selector: 'delivery-calculation',
@@ -49,7 +49,7 @@ export class DeliveryCalculationComponent {
     this.formGroup = this.fb.group({
       senderPoint: new FormControl(0),
       receiverPoint: new FormControl(0),
-      package: new FormControl<Package | null>(null, packageValidator),
+      package: new FormControl<Package | null>(null, [requireValidator, packageValidator]),
     });
   }
 
