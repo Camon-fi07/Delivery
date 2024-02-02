@@ -2,14 +2,14 @@ import type { Meta, StoryFn } from '@storybook/angular';
 import { ModalComponent } from './modal.component';
 
 export default {
-  title: 'UI/Tabs',
+  title: 'UI/Modal',
   component: ModalComponent,
 } as Meta;
 
 const Template: StoryFn<ModalComponent> = (args: ModalComponent) => ({
   props: args,
   template: `
-  <modal>
+  <modal [isOpen]="isOpen">
   Контент
   </modal>`,
 });
