@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { TextComponent } from 'shared/UI/text/text.component';
 import { TextType } from 'shared/UI/text/text.types';
 import { ButtonStyles } from 'shared/UI/button/button.types';
@@ -16,14 +16,22 @@ export class DropdownComponent {
   @Input() chosenVariant = 'Не выбран';
   @Input() shortVariants?: string[];
   @Input() isCloseOnClick = true;
+  @Input() contentHeight = 300;
   @Output() shortBtnClick? = new EventEmitter<number>();
-
+  @ViewChild('content') element!: ElementRef;
+  isTopOpen = false;
   isOpen = false;
   labelType = TextType.VALUE;
   buttonUnderline = ButtonStyles.SIMPLE_UNDERLINE;
 
   toggle() {
     this.isOpen = !this.isOpen;
+
+    if (this.isOpen) {
+      if (window.innerHeight - this.element.nativeElement.getBoundingClientRect().bottom < this.contentHeight) {
+        this.isTopOpen = true;
+      } else this.isTopOpen = false;
+    }
   }
 
   handleShortBtnClick(index: number) {
