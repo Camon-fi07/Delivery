@@ -1,6 +1,6 @@
 <div class="card">
   <div class="title">
-    <text [textType]="TextType.CARD_TITLE">Получатель</text>
+    <text [textType]="TextType.CARD_TITLE">{{ name }}</text>
     <button *ngIf="canChange" (click)="changeEmitter.emit()" type="button">
       <img src="assets/icons/pencil.svg" alt="" />
     </button>

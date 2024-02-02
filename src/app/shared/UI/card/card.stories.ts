@@ -9,7 +9,7 @@ export default {
 const Template: StoryFn<CardComponent> = (args: CardComponent) => ({
   props: args,
   template: `
-  <card [values]="values"></card>`,
+  <card [values]="values" [name]="name"></card>`,
 });
 
 export const Default = Template.bind({});
@@ -19,4 +19,5 @@ Default.args = {
     { name: 'ФИО', value: 'Иванов Иван Иванович' },
     { name: 'Телефон', value: '+7 913 123 45 67' },
   ],
+  name: 'Получатель',
 } as Partial<CardComponent>;

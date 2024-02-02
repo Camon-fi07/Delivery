@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 })
 export class CardComponent {
   TextType = TextType;
+  @Input({ required: true }) name!: string;
   @Input({ required: true }) values!: Data[];
   @Input() canChange = false;
   @Output() changeEmitter = new EventEmitter();
