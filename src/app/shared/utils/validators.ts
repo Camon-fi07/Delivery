@@ -1,5 +1,5 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
-import { PHONE_REG } from 'shared/constants/regularExpressions';
+import { NAME_REG, PHONE_REG } from 'shared/constants/regularExpressions';
 
 export const phoneValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
   const errors: ValidationErrors = {};
@@ -24,6 +24,20 @@ export const packageValidator: ValidatorFn = (control: AbstractControl): Validat
   if (!weight || parseInt(weight) < 1) errors['weight'] = 'Вес должен быть больше нуля';
   if (!length || parseInt(length) < 1) errors['length'] = 'Длина должна быть больше нуля';
   if (!width || parseInt(width) < 1) errors['width'] = 'Ширина должна быть больше нуля';
+
+  return Object.keys(errors).length ? errors : null;
+};
+
+export const nameValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
+  const errors: ValidationErrors = {};
+
+  if (!control.value) {
+    errors['required'] = 'Ожидалось значение';
+    return errors;
+  }
+
+  if (!NAME_REG.test(control.value)) errors['format'] = 'Неверный формат';
+  if (control.value.length > 60) errors['length'] = 'Длина имени не может превышать 60 символов';
 
   return Object.keys(errors).length ? errors : null;
 };

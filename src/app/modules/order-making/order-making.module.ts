@@ -7,10 +7,22 @@ import { OrderInfoService } from './services/order-info.service';
 import { HttpClient } from '@angular/common/http';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { orderMakingRoutes } from './order-making.routes';
+import { UserInfoComponent } from './components/user-info/user-info.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FieldComponent } from 'components/field/field.component';
+import { ButtonComponent } from 'shared/UI/button/button.component';
 
 @NgModule({
-  declarations: [OrderMakingComponent, OptionsComponent],
-  imports: [CommonModule, TextComponent, RouterOutlet, RouterModule.forChild(orderMakingRoutes)],
+  declarations: [OrderMakingComponent, OptionsComponent, UserInfoComponent],
+  imports: [
+    CommonModule,
+    TextComponent,
+    RouterOutlet,
+    FieldComponent,
+    ReactiveFormsModule,
+    ButtonComponent,
+    RouterModule.forChild(orderMakingRoutes),
+  ],
   exports: [OrderMakingComponent],
   providers: [OrderInfoService, HttpClient],
 })
