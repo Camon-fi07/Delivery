@@ -30,24 +30,26 @@ export class AddressFormComponent {
     this.route.params.subscribe((params) => {
       this.isSender = params['isSender'] === 'true';
 
-      this.formGroup = this.fb.group({
-        street: new FormControl(
-          this.isSender ? this.orderInfo.senderAddress?.street : this.orderInfo.receiverAddress?.street,
-          [requireValidator, addressValidator],
-        ),
-        house: new FormControl(
-          this.isSender ? this.orderInfo.senderAddress?.house : this.orderInfo.receiverAddress?.house,
-          [requireValidator, addressValidator],
-        ),
-        appartament: new FormControl(
-          this.isSender ? this.orderInfo.senderAddress?.appartament : this.orderInfo.receiverAddress?.appartament,
-          [requireValidator, addressValidator],
-        ),
-        comment: new FormControl(
-          (this.isSender ? this.orderInfo.senderAddress?.comment : this.orderInfo.receiverAddress?.comment) || '',
-          commentValidator,
-        ),
-      });
+      if (this.formGroup?.value) this.formGroup.reset();
+    });
+
+    this.formGroup = this.fb.group({
+      street: new FormControl(
+        this.isSender ? this.orderInfo.senderAddress?.street : this.orderInfo.receiverAddress?.street,
+        [requireValidator, addressValidator],
+      ),
+      house: new FormControl(
+        this.isSender ? this.orderInfo.senderAddress?.house : this.orderInfo.receiverAddress?.house,
+        [requireValidator, addressValidator],
+      ),
+      appartament: new FormControl(
+        this.isSender ? this.orderInfo.senderAddress?.appartament : this.orderInfo.receiverAddress?.appartament,
+        [requireValidator, addressValidator],
+      ),
+      comment: new FormControl(
+        (this.isSender ? this.orderInfo.senderAddress?.comment : this.orderInfo.receiverAddress?.comment) || '',
+        commentValidator,
+      ),
     });
   }
 

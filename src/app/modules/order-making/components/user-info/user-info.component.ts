@@ -28,24 +28,26 @@ export class UserInfoComponent {
     this.route.params.subscribe((params) => {
       this.isSender = params['isSender'] === 'true';
 
-      this.formGroup = this.fb.group({
-        firstname: new FormControl(
-          this.isSender ? this.orderInfo.sender?.firstname : this.orderInfo.receiver?.firstname,
-          [requireValidator, nameValidator],
-        ),
-        lastname: new FormControl(this.isSender ? this.orderInfo.sender?.lastname : this.orderInfo.receiver?.lastname, [
-          requireValidator,
-          nameValidator,
-        ]),
-        middlename: new FormControl(
-          this.isSender ? this.orderInfo.sender?.middlename : this.orderInfo.receiver?.middlename,
-          nameValidator,
-        ),
-        phone: new FormControl(this.isSender ? this.orderInfo.sender?.phone : this.orderInfo.receiver?.phone, [
-          requireValidator,
-          phoneValidator,
-        ]),
-      });
+      if (this.formGroup?.value) this.formGroup.reset();
+    });
+
+    this.formGroup = this.fb.group({
+      firstname: new FormControl(
+        this.isSender ? this.orderInfo.sender?.firstname : this.orderInfo.receiver?.firstname,
+        [requireValidator, nameValidator],
+      ),
+      lastname: new FormControl(this.isSender ? this.orderInfo.sender?.lastname : this.orderInfo.receiver?.lastname, [
+        requireValidator,
+        nameValidator,
+      ]),
+      middlename: new FormControl(
+        this.isSender ? this.orderInfo.sender?.middlename : this.orderInfo.receiver?.middlename,
+        nameValidator,
+      ),
+      phone: new FormControl(this.isSender ? this.orderInfo.sender?.phone : this.orderInfo.receiver?.phone, [
+        requireValidator,
+        phoneValidator,
+      ]),
     });
   }
 
