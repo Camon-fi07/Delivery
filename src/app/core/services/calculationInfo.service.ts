@@ -6,7 +6,7 @@ import { CalculateDeliveryDto, CalculateDeliveryResponse, DeliveryOption } from 
 
 @Injectable()
 export class CalculationInfo {
-  options?: DeliveryOption[];
+  options: DeliveryOption[] = [];
   calculateData?: CalculateDeliveryDto;
 
   constructor(private http: HttpClient) {}
