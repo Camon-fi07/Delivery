@@ -15,6 +15,8 @@ export class UserService {
   constructor(private http: HttpClient) {
     this.phone = localStorage.getItem('phone') || undefined;
     this.token = localStorage.getItem('token') || undefined;
+
+    this.getSession().subscribe();
   }
 
   getSession(): Observable<SessionResponse> {
