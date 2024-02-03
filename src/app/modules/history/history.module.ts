@@ -8,10 +8,12 @@ import { TextComponent } from 'shared/UI/text/text.component';
 import { ButtonComponent } from 'shared/UI/button/button.component';
 import { ModalComponent } from 'shared/UI/modal/modal.component';
 import { RouterOutlet } from '@angular/router';
+import { HistoryService } from './services/history.service';
 
 @NgModule({
   declarations: [HistoryComponent, HistoryCardComponent, HistoryListComponent, OrderDetailsComponent],
   imports: [CommonModule, TextComponent, ButtonComponent, ModalComponent, RouterOutlet],
+  providers: [HistoryService],
   exports: [HistoryComponent],
 })
 export class HistoryModule {}
