@@ -17,6 +17,7 @@ export class DropdownComponent {
   @Input() shortVariants?: string[];
   @Input() isCloseOnClick = true;
   @Input() contentHeight = 300;
+  @Input() icon?: string;
   @Output() shortBtnClick? = new EventEmitter<number>();
   @ViewChild('content') element!: ElementRef;
   isTopOpen = false;

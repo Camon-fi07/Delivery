@@ -2,13 +2,21 @@
   <text [textType]="titleType">Рассчитать доставку</text>
   <div class="dropdown">
     <text [textType]="labelType">Город отправки</text>
-    <dropdown *ngIf="pointsNames" [chosenVariant]="pointsNames[formGroup.controls['senderPoint'].value]">
+    <dropdown
+      icon="assets/icons/point.svg"
+      *ngIf="pointsNames"
+      [chosenVariant]="pointsNames[formGroup.controls['senderPoint'].value]"
+    >
       <controls class="list" [values]="pointsNames" (emitChosenIndex)="handlePoint($event, true)"></controls>
     </dropdown>
   </div>
   <div class="dropdown">
     <text [textType]="labelType">Город назначения</text>
-    <dropdown *ngIf="pointsNames" [chosenVariant]="pointsNames[formGroup.controls['receiverPoint'].value]">
+    <dropdown
+      icon="assets/icons/location.svg"
+      *ngIf="pointsNames"
+      [chosenVariant]="pointsNames[formGroup.controls['receiverPoint'].value]"
+    >
       <controls [values]="pointsNames" (emitChosenIndex)="handlePoint($event, false)"></controls>
     </dropdown>
   </div>

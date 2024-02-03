@@ -12,10 +12,16 @@
   border: 1px solid var(--Border-Light);
   border-radius: 8px;
   gap: 20px;
+}
 
-  img {
-    transform: rotate(180deg);
-  }
+.title {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.arrow {
+  transform: rotate(180deg);
 }
 
 .open {
