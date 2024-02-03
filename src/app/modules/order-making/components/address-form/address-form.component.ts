@@ -5,7 +5,7 @@ import { OrderInfoService } from 'modules/order-making/services/order-info.servi
 import { ButtonStyles } from 'shared/UI/button/button.types';
 import { TextType } from 'shared/UI/text/text.types';
 import { Location } from '@angular/common';
-import { addressValidator, commentValidator, requireValidator } from 'shared/utils/validators';
+import { addressNumberValidator, addressValidator, commentValidator, requireValidator } from 'shared/utils/validators';
 import { FieldTags } from 'components/field/field.types';
 
 @Component({
@@ -43,11 +43,11 @@ export class AddressFormComponent {
       ),
       house: new FormControl(
         this.isSender ? this.orderInfo.senderAddress?.house : this.orderInfo.receiverAddress?.house,
-        [requireValidator, addressValidator],
+        [requireValidator, addressNumberValidator],
       ),
       appartament: new FormControl(
         this.isSender ? this.orderInfo.senderAddress?.appartament : this.orderInfo.receiverAddress?.appartament,
-        [requireValidator, addressValidator],
+        [requireValidator, addressNumberValidator],
       ),
       comment: new FormControl(
         (this.isSender ? this.orderInfo.senderAddress?.comment : this.orderInfo.receiverAddress?.comment) || '',

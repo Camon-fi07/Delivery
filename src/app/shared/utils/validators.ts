@@ -1,5 +1,5 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
-import { ADDRESS_REG, NAME_REG, PHONE_REG } from 'shared/constants/regularExpressions';
+import { ADDRESS_NUMBER_REG, ADDRESS_REG, NAME_REG, PHONE_REG } from 'shared/constants/regularExpressions';
 
 export const requireValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
   return !control.value ? { required: 'Поле является обязательным' } : null;
@@ -43,6 +43,17 @@ export const addressValidator: ValidatorFn = (control: AbstractControl): Validat
   const errors: ValidationErrors = {};
 
   if (!ADDRESS_REG.test(control?.value)) errors['format'] = 'Неверный формат';
+  if (control?.value?.length > 100) errors['length'] = 'Длина адреса не может превышать 100 символов';
+
+  return Object.keys(errors).length ? errors : null;
+};
+
+export const addressNumberValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
+  if (!control.value) return null;
+
+  const errors: ValidationErrors = {};
+
+  if (!ADDRESS_NUMBER_REG.test(control?.value)) errors['format'] = 'Неверный формат';
   if (control?.value?.length > 100) errors['length'] = 'Длина адреса не может превышать 100 символов';
 
   return Object.keys(errors).length ? errors : null;
