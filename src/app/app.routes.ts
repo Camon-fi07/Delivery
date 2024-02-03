@@ -8,8 +8,8 @@ import { OrderMakingPageComponent } from 'pages/order-making-page/order-making-p
 import { ProfilePageComponent } from 'pages/profile-page/profile-page.component';
 
 export const routes: Routes = [
-  { path: 'auth', component: AuthPageComponent },
-  { path: 'order', component: OrderMakingPageComponent, children: orderMakingRoutes, canActivate: [orderGuard] },
-  { path: 'profile', component: ProfilePageComponent, canActivate: [authGuard] },
   { path: '', component: MainPageComponent },
+  { path: 'auth', component: AuthPageComponent },
+  { path: 'profile', component: ProfilePageComponent, canActivate: [authGuard] },
+  { path: 'order', component: OrderMakingPageComponent, children: orderMakingRoutes, canActivate: [orderGuard] },
 ];
