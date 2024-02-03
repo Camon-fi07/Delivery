@@ -1,11 +1,18 @@
 <div class="profile">
   <text [textType]="TextType.TITLE">Профиль</text>
-  <form class="form" [formGroup]="formGroup">
+  <form class="form" [formGroup]="formGroup" (ngSubmit)="handleSubmit()">
     <field [formGroup]="formGroup" name="lastname" label="Фамилия" placeholder="Фамилия"></field>
     <field [formGroup]="formGroup" name="phone" label="Номер телефона" placeholder="Телефон"></field>
     <field [formGroup]="formGroup" name="firstname" label="Имя" placeholder="Имя"></field>
     <field [formGroup]="formGroup" name="email" label="Email" placeholder="Email"></field>
     <field [formGroup]="formGroup" name="middlename" label="Отчество" placeholder="Отчество"></field>
-    <UI-button [buttonStyle]="ButtonType.BRAND">Обновить данные</UI-button>
+    <UI-button type="submit" [buttonStyle]="ButtonType.BRAND">Обновить данные</UI-button>
   </form>
+  <text *ngIf="error" [textType]="TextType.ERROR">{{ error }}</text>
+  <modal [isOpen]="isProfileUpdated" (closeModal)="toggleIsProfileUpdated()">
+    <div class="modal_content">
+      <img src="assets/icons/success.svg" alt="" />
+      <text [textType]="TextType.TITLE">Профиль был успешно обновлён!</text>
+    </div>
+  </modal>
 </div>

@@ -31,3 +31,12 @@
     align-items: center;
   }
 }
+
+.modal_content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}

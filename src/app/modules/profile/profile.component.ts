@@ -15,6 +15,12 @@ export class ProfileComponent {
   TextType = TextType;
   ButtonType = ButtonStyles;
   formGroup!: FormGroup;
+  isProfileUpdated = false;
+  error?: string;
+
+  toggleIsProfileUpdated() {
+    this.isProfileUpdated = !this.isProfileUpdated;
+  }
 
   constructor(
     private fb: FormBuilder,
@@ -29,5 +35,33 @@ export class ProfileComponent {
       city: new FormControl(userService.user?.city || '', addressValidator),
       phone: new FormControl({ value: userService.phone, disabled: true }),
     });
+
+    if (!userService.user) {
+      this.userService.getSession().subscribe({
+        next: (res) => {
+          this.formGroup.controls['lastname'].setValue(res.user.lastname || '');
+          this.formGroup.controls['firstname'].setValue(res.user.firstname || '');
+          this.formGroup.controls['middlename'].setValue(res.user.middlename || '');
+          this.formGroup.controls['email'].setValue(res.user.email || '');
+          this.formGroup.controls['city'].setValue(res.user.city || '');
+          this.formGroup.controls['phone'].setValue(res.user.phone || '');
+        },
+      });
+    }
+  }
+
+  handleSubmit() {
+    this.userService
+      .updateProfile(
+        this.userService.translateUserToProfile({ ...this.formGroup.value, phone: this.userService.phone }),
+      )
+      .subscribe({
+        next: () => {
+          this.toggleIsProfileUpdated();
+        },
+        error: (err) => {
+          this.error = `Произошла ошибка ${err}`;
+        },
+      });
   }
 }
