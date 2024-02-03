@@ -37,7 +37,7 @@ delivery-calculation {
   position: relative;
 }
 
-@media (max-width: 868px) {
+@media (max-width: 768px) {
   .wrapper {
     flex-direction: column;
     gap: 50px;
@@ -48,6 +48,7 @@ delivery-calculation {
   }
 
   delivery-calculation {
-    max-width: 95%;
+    width: 95%;
+    max-width: 500px;
   }
 }
