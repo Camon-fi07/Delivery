@@ -1,8 +1,8 @@
-import { OtpResponse, SessionResponse, SignInResponse, SingInDto, User } from 'shared/types/User';
+import { OtpResponse, SessionResponse, SignInResponse, SingInDto, UpdateProfileDto, User } from 'shared/types/User';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, map } from 'rxjs';
-import { OTP, SESSION, SIGNIN } from 'shared/constants/apiUrl';
+import { OTP, PROFILE, SESSION, SIGNIN } from 'shared/constants/apiUrl';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +16,7 @@ export class UserService {
     this.phone = localStorage.getItem('phone') || undefined;
     this.token = localStorage.getItem('token') || undefined;
 
-    this.getSession();
+    this.getSession().subscribe();
   }
 
   getSession(): Observable<SessionResponse> {
@@ -58,5 +58,27 @@ export class UserService {
         return res;
       }),
     );
+  }
+
+  updateProfile(data: UpdateProfileDto): Observable<SessionResponse> {
+    return this.http.patch<SessionResponse>(PROFILE, data, { headers: { Authorization: `Bearer ${this.token}` } }).pipe(
+      map((res) => {
+        this.getSession().subscribe();
+        return res;
+      }),
+    );
+  }
+
+  translateUserToProfile(user: User): UpdateProfileDto {
+    return {
+      phone: user.phone,
+      profile: {
+        city: user.city || '',
+        email: user.email || '',
+        firstname: user.firstname || '',
+        lastname: user.lastname || '',
+        middlename: user.middlename || '',
+      },
+    };
   }
 }
