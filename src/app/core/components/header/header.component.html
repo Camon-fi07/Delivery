@@ -1,20 +1,20 @@
 <header>
   <a routerLink=""><img src="assets/icons/logo.svg" alt="Главная" /></a>
   <div *ngIf="isAuth" class="profile">
-    <div class="item">
+    <a routerLink="profile" class="item">
       <img src="assets/icons/union.svg" alt="" />
-      <a routerLink="profile"><text [textType]="TextType.CARD_TITLE">Профиль</text></a>
-    </div>
-    <div class="item">
+      <text [textType]="TextType.CARD_TITLE">Профиль</text>
+    </a>
+    <a routerLink="history" class="item">
       <img src="assets/icons/clock.svg" alt="" />
-      <a routerLink="history"><text [textType]="TextType.CARD_TITLE">История</text></a>
-    </div>
+      <text [textType]="TextType.CARD_TITLE">История</text>
+    </a>
   </div>
   @if (isAuth) {
-    <div class="item">
+    <button (click)="handleLogOut()" type="button" class="item">
       <img src="assets/icons/exit.svg" alt="" />
-      <button (click)="handleLogOut()"><text [textType]="TextType.CARD_TITLE">Выйти</text></button>
-    </div>
+      <text [textType]="TextType.CARD_TITLE">Выйти</text>
+    </button>
   } @else {
     <a routerLink="auth"><text [textType]="TextType.CARD_TITLE">Войти</text></a>
   }
