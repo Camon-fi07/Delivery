@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'core/services/user.service';
+import { ButtonStyles } from 'shared/UI/button/button.types';
 import { TextType } from 'shared/UI/text/text.types';
 import { addressValidator, nameValidator } from 'shared/utils/validators';
 
@@ -12,6 +13,7 @@ import { addressValidator, nameValidator } from 'shared/utils/validators';
 })
 export class ProfileComponent {
   TextType = TextType;
+  ButtonType = ButtonStyles;
   formGroup!: FormGroup;
 
   constructor(
@@ -19,20 +21,13 @@ export class ProfileComponent {
     private userService: UserService,
     private router: Router,
   ) {
-    userService.getSession().subscribe({
-      next: (res) => {
-        this.formGroup = this.fb.group({
-          lastname: new FormControl(res.user.lastName || '', nameValidator),
-          firstname: new FormControl(res.user.firstName || '', nameValidator),
-          middlename: new FormControl(res.user.middleName || '', nameValidator),
-          email: new FormControl(res.user.email || '', Validators.email),
-          city: new FormControl(res.user.email || '', addressValidator),
-          phone: new FormControl({ value: res.user.phone || userService.phone, disabled: true }),
-        });
-      },
-      error: () => {
-        router.navigate(['auth']);
-      },
+    this.formGroup = this.fb.group({
+      lastname: new FormControl(userService.user?.lastname || '', nameValidator),
+      firstname: new FormControl(userService.user?.firstname || '', nameValidator),
+      middlename: new FormControl(userService.user?.middlename || '', nameValidator),
+      email: new FormControl(userService.user?.email || '', Validators.email),
+      city: new FormControl(userService.user?.city || '', addressValidator),
+      phone: new FormControl({ value: userService.phone, disabled: true }),
     });
   }
 }

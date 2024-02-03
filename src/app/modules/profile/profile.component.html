@@ -1,8 +1,11 @@
-<form [formGroup]="formGroup">
+<div class="profile">
   <text [textType]="TextType.TITLE">Профиль</text>
-  <field [formGroup]="formGroup" name="lastname" label="Фамилия" placeholder="Фамилия"></field>
-  <field [formGroup]="formGroup" name="firstname" label="Имя" placeholder="Имя"></field>
-  <field [formGroup]="formGroup" name="middlename" label="Отчество" placeholder="Отчество"></field>
-  <field [formGroup]="formGroup" name="phone" label="Номер телефона" placeholder="Телефон"></field>
-  <field [formGroup]="formGroup" name="email" label="Email" placeholder="Email"></field>
-</form>
+  <form class="form" [formGroup]="formGroup">
+    <field [formGroup]="formGroup" name="lastname" label="Фамилия" placeholder="Фамилия"></field>
+    <field [formGroup]="formGroup" name="phone" label="Номер телефона" placeholder="Телефон"></field>
+    <field [formGroup]="formGroup" name="firstname" label="Имя" placeholder="Имя"></field>
+    <field [formGroup]="formGroup" name="email" label="Email" placeholder="Email"></field>
+    <field [formGroup]="formGroup" name="middlename" label="Отчество" placeholder="Отчество"></field>
+    <UI-button [buttonStyle]="ButtonType.BRAND">Обновить данные</UI-button>
+  </form>
+</div>

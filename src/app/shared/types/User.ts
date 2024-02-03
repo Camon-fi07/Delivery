@@ -13,9 +13,9 @@ export interface UserDeliveryInfo {
 export interface User {
   phone: string;
   _id: string;
-  firstName?: string;
-  middleName?: string;
-  lastName?: string;
+  firstname?: string;
+  middlename?: string;
+  lastname?: string;
   email?: string;
   city?: string;
 }
