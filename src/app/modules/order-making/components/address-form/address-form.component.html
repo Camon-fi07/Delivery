@@ -1,8 +1,8 @@
 <form class="form" [formGroup]="formGroup" (submit)="handleSubmit()">
   <text [textType]="textType.TITLE">{{ isSender ? 'Откуда забрать' : 'Куда доставить' }}</text>
   <field label="Улица" placeholder="Улица" [formGroup]="formGroup" name="street"></field>
-  <field label="Номер дома" placeholder="Дом" [formGroup]="formGroup" name="house"></field>
-  <field label="Номер квартиры" placeholder="Квартира" [formGroup]="formGroup" name="appartament"></field>
+  <field type="number" label="Номер дома" placeholder="Дом" [formGroup]="formGroup" name="house"></field>
+  <field type="number" label="Номер квартиры" placeholder="Квартира" [formGroup]="formGroup" name="appartament"></field>
   <field
     [tag]="fieldTags.TEXTAREA"
     label="Заметка"

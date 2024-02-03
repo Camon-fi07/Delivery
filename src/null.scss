@@ -47,6 +47,10 @@ textarea {
   font-family: inherit;
   text-align: left;
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
 input::-ms-clear {
   display: none;
 }
