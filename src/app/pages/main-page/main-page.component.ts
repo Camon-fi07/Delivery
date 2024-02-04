@@ -11,5 +11,5 @@ import { TextType } from 'shared/UI/text/text.types';
   styleUrl: './main-page.component.scss',
 })
 export class MainPageComponent {
-  titleType = TextType.BIG_TITLE;
+  TextType = TextType;
 }

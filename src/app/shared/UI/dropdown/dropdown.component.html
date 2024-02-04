@@ -2,7 +2,7 @@
   <button type="button" (blur)="handleBlur($event)" class="panel" (click)="toggle()">
     <div class="title">
       <img *ngIf="icon" [src]="icon" alt="" />
-      <text [textType]="labelType">
+      <text [textType]="TextType.VALUE">
         {{ chosenVariant }}
       </text>
     </div>
@@ -15,7 +15,7 @@
 <div class="short_variants">
   <UI-button
     type="button"
-    [buttonStyle]="buttonUnderline"
+    [buttonStyle]="ButtonStyles.SIMPLE_UNDERLINE"
     *ngFor="let item of shortVariants; index as i"
     (clickButton)="handleShortBtnClick(i)"
     >item

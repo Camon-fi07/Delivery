@@ -12,7 +12,7 @@ export class SuccessModalComponent {
   @Input({ required: true }) isOpen!: boolean;
   TextType = TextType;
   TextTag = TextTags;
-  ButtonTypes = ButtonStyles;
+  ButtonStyles = ButtonStyles;
 
   constructor(private router: Router) {}
 

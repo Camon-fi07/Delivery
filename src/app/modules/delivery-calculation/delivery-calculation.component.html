@@ -1,7 +1,7 @@
 <form class="delivery_calculation" [formGroup]="formGroup" (submit)="handleSubmit()">
-  <text [textType]="titleType">Рассчитать доставку</text>
+  <text [textType]="TextType.TITLE">Рассчитать доставку</text>
   <div class="dropdown">
-    <text [textType]="labelType">Город отправки</text>
+    <text [textType]="TextType.LABEL">Город отправки</text>
     <dropdown
       icon="assets/icons/point.svg"
       *ngIf="pointsNames"
@@ -11,7 +11,7 @@
     </dropdown>
   </div>
   <div class="dropdown">
-    <text [textType]="labelType">Город назначения</text>
+    <text [textType]="TextType.LABEL">Город назначения</text>
     <dropdown
       icon="assets/icons/location.svg"
       *ngIf="pointsNames"
@@ -21,14 +21,14 @@
     </dropdown>
   </div>
   <div class="dropdown">
-    <text [textType]="labelType">Размер посылки</text>
+    <text [textType]="TextType.LABEL">Размер посылки</text>
     <size-dropdown (setPackage)="handlePackage($event)" *ngIf="packages" [packages]="packages"></size-dropdown>
     <text
       *ngIf="formGroup.controls['package'].errors && formGroup.controls['package'].touched"
-      [textType]="errorType"
+      [textType]="TextType.ERROR"
       >{{ packageError }}</text
     >
   </div>
-  <UI-button type="submit" [buttonStyle]="brandButton">Рассчитать</UI-button>
-  <text *ngIf="error" [textType]="errorType">{{ error }}</text>
+  <UI-button type="submit" [buttonStyle]="ButtonStyles.BRAND">Рассчитать</UI-button>
+  <text *ngIf="error" [textType]="TextType.ERROR">{{ error }}</text>
 </form>

@@ -22,8 +22,8 @@ export class DropdownComponent {
   @ViewChild('content') element!: ElementRef;
   isTopOpen = false;
   isOpen = false;
-  labelType = TextType.VALUE;
-  buttonUnderline = ButtonStyles.SIMPLE_UNDERLINE;
+  TextType = TextType;
+  ButtonStyles = ButtonStyles;
 
   toggle() {
     this.isOpen = !this.isOpen;

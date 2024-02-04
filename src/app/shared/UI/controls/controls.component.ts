@@ -19,7 +19,7 @@ export class ControlsComponent implements OnInit {
   @Input() defaultIndex = 0;
 
   chosenIndexes = [this.defaultIndex];
-  textValueType = TextType.VALUE;
+  TextType = TextType;
 
   handleChose(index: number) {
     if (!this.isDisabled) this.emitChosenIndex.emit(index);

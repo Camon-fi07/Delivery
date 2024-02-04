@@ -32,8 +32,8 @@
     <text [textType]="TextType.VALUE">Срок: {{ option.days }} рабочий день</text>
   </div>
   <div class="panel">
-    <UI-button (clickButton)="toggleIsCancel()" type="button" [buttonStyle]="ButtonType.SIMPLE">Отменить</UI-button>
-    <UI-button (clickButton)="handleSubmit()" type="button" [buttonStyle]="ButtonType.BRAND">Отправить</UI-button>
+    <UI-button (clickButton)="toggleIsCancel()" type="button" [buttonStyle]="ButtonStyles.SIMPLE">Отменить</UI-button>
+    <UI-button (clickButton)="handleSubmit()" type="button" [buttonStyle]="ButtonStyles.BRAND">Отправить</UI-button>
     <text *ngIf="error" [textType]="TextType.ERROR">{{ error }}</text>
   </div>
   <success-modal [isOpen]="isSuccess"></success-modal>

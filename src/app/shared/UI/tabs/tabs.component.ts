@@ -14,7 +14,7 @@ export class TabsComponent {
   @Input({ required: true }) variants!: string[];
   @Input() chosenIndex = 0;
   @Output() switchVariant = new EventEmitter<number>();
-  labelType = TextType.LABEL;
+  TextType = TextType;
 
   handleChange(index: number) {
     this.chosenIndex = index;

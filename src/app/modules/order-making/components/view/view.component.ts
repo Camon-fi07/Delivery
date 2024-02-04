@@ -15,7 +15,7 @@ import { Location } from '@angular/common';
 })
 export class ViewComponent {
   TextType = TextType;
-  ButtonType = ButtonStyles;
+  ButtonStyles = ButtonStyles;
   sender!: CardData[];
   receiver!: CardData[];
   senderAddress!: CardData[];

@@ -1,7 +1,7 @@
 <form class="auth" [formGroup]="formGroup" (ngSubmit)="handleSubmit()">
-  <text [textType]="titleType">Вход</text>
-  <text [textType]="subtitleType">Введите номер телефона для входа в личный кабинет</text>
+  <text [textType]="TextType.TITLE">Вход</text>
+  <text [textType]="TextType.VALUE">Введите номер телефона для входа в личный кабинет</text>
   <field [formGroup]="formGroup" name="phone" placeholder="Телефон"></field>
   <field type="number" *ngIf="isPhoneSubmit" [formGroup]="formGroup" name="code" placeholder="Проверочный код"></field>
-  <UI-button [type]="'submit'" [buttonStyle]="buttonStyle">Войти</UI-button>
+  <UI-button [type]="'submit'" [buttonStyle]="ButtonStyles.BRAND">Войти</UI-button>
 </form>

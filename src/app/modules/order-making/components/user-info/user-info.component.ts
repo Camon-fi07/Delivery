@@ -15,8 +15,8 @@ import { Location } from '@angular/common';
 export class UserInfoComponent {
   formGroup!: FormGroup;
   isSender!: boolean;
-  buttonType = ButtonStyles;
-  textType = TextType;
+  ButtonStyles = ButtonStyles;
+  TextType = TextType;
 
   constructor(
     private fb: FormBuilder,

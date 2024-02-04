@@ -18,5 +18,5 @@ export class CancelModalComponent {
   @Output() cancelOrder = new EventEmitter();
   TextType = TextType;
   TextTag = TextTags;
-  ButtonTypes = ButtonStyles;
+  ButtonStyles = ButtonStyles;
 }

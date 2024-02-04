@@ -13,9 +13,8 @@ import { phoneValidator, requireValidator } from 'shared/utils/validators';
 })
 export class AuthComponent {
   formGroup!: FormGroup;
-  titleType = TextType.TITLE;
-  subtitleType = TextType.VALUE;
-  buttonStyle = ButtonStyles.BRAND;
+  TextType = TextType;
+  ButtonStyles = ButtonStyles;
   isPhoneSubmit = false;
 
   constructor(

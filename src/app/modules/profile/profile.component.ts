@@ -13,7 +13,7 @@ import { addressValidator, nameValidator } from 'shared/utils/validators';
 })
 export class ProfileComponent {
   TextType = TextType;
-  ButtonType = ButtonStyles;
+  ButtonStyles = ButtonStyles;
   formGroup!: FormGroup;
   isProfileUpdated = false;
   error?: string;

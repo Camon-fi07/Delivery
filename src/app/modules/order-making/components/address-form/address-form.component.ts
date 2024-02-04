@@ -16,8 +16,8 @@ import { FieldTags } from 'components/field/field.types';
 export class AddressFormComponent {
   formGroup!: FormGroup;
   isSender!: boolean;
-  buttonType = ButtonStyles;
-  textType = TextType;
+  ButtonStyles = ButtonStyles;
+  TextType = TextType;
   fieldTags = FieldTags;
 
   constructor(

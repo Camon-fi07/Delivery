@@ -8,9 +8,9 @@
         />
       </div>
       <div class="description">
-        <text [textType]="smallTextType">{{ option.name }}</text>
-        <text [textType]="smallTitleType">{{ option.price }} ₽</text>
-        <text [textType]="smallTextType">{{ option.days }} рабочий день</text>
+        <text [textType]="TextType.SMALL_TEXT">{{ option.name }}</text>
+        <text [textType]="TextType.SMALL_TITLE">{{ option.price }} ₽</text>
+        <text [textType]="TextType.SMALL_TEXT">{{ option.days }} рабочий день</text>
       </div>
     </button>
   </li>

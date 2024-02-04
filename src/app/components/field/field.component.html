@@ -1,5 +1,5 @@
 <label [ngClass]="{ field: true, row: isRow }" [htmlFor]="name" [formGroup]="formGroup">
-  <text *ngIf="label" [textType]="labelType">{{ label }}</text>
+  <text *ngIf="label" [textType]="TextType.LABEL">{{ label }}</text>
   @if (tag === 'input') {
     <input
       [placeholder]="placeholder"
@@ -26,5 +26,5 @@
       [rows]="rows"
     ></textarea>
   }
-  <text *ngIf="error && formGroup.controls[name].touched" [textType]="errorType">{{ error }}</text>
+  <text *ngIf="error && formGroup.controls[name].touched" [textType]="TextType.ERROR">{{ error }}</text>
 </label>

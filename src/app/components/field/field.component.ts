@@ -21,8 +21,7 @@ export class FieldComponent implements OnInit {
   @Input({ required: true }) formGroup!: FormGroup;
   @Input() placeholder = '';
   @Input() isRow = false;
-  labelType = TextType.LABEL;
-  errorType = TextType.ERROR;
+  TextType = TextType;
   error!: string;
 
   ngOnInit() {

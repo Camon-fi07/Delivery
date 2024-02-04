@@ -12,8 +12,7 @@ import { Router } from '@angular/router';
 })
 export class OptionsComponent {
   options!: DeliveryOption[];
-  smallTextType = TextType.SMALL_TEXT;
-  smallTitleType = TextType.SMALL_TITLE;
+  TextType = TextType;
 
   constructor(
     private calculationInfo: CalculationInfo,

@@ -6,7 +6,7 @@
     <field [formGroup]="formGroup" name="firstname" label="Имя" placeholder="Имя"></field>
     <field [formGroup]="formGroup" name="email" label="Email" placeholder="Email"></field>
     <field [formGroup]="formGroup" name="middlename" label="Отчество" placeholder="Отчество"></field>
-    <UI-button type="submit" [buttonStyle]="ButtonType.BRAND">Обновить данные</UI-button>
+    <UI-button type="submit" [buttonStyle]="ButtonStyles.BRAND">Обновить данные</UI-button>
   </form>
   <text *ngIf="error" [textType]="TextType.ERROR">{{ error }}</text>
   <modal [isOpen]="isProfileUpdated" (closeModal)="toggleIsProfileUpdated()">

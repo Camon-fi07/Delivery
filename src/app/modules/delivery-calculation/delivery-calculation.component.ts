@@ -20,10 +20,8 @@ export class DeliveryCalculationComponent {
   points!: SpecialPoint[];
   pointsNames!: string[];
   formGroup!: FormGroup;
-  labelType = TextType.LABEL;
-  titleType = TextType.TITLE;
-  errorType = TextType.ERROR;
-  brandButton = ButtonStyles.BRAND;
+  TextType = TextType;
+  ButtonStyles = ButtonStyles;
   error?: string;
 
   constructor(
