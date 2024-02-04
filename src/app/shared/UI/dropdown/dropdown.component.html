@@ -16,8 +16,8 @@
   <UI-button
     type="button"
     [buttonStyle]="ButtonStyles.SIMPLE_UNDERLINE"
-    *ngFor="let item of shortVariants; index as i"
-    (clickButton)="handleShortBtnClick(i)"
+    *ngFor="let item of shortVariants; let index = index"
+    (clickButton)="handleShortBtnClick(index)"
     >item
   </UI-button>
 </div>
