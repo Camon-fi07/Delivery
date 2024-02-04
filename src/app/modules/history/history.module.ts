@@ -7,12 +7,12 @@ import { OrderDetailsComponent } from './components/order-details/order-details.
 import { TextComponent } from 'shared/UI/text/text.component';
 import { ButtonComponent } from 'shared/UI/button/button.component';
 import { ModalComponent } from 'shared/UI/modal/modal.component';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { HistoryService } from './services/history.service';
 
 @NgModule({
   declarations: [HistoryComponent, HistoryCardComponent, HistoryListComponent, OrderDetailsComponent],
-  imports: [CommonModule, TextComponent, ButtonComponent, ModalComponent, RouterOutlet],
+  imports: [CommonModule, TextComponent, ButtonComponent, ModalComponent, RouterOutlet, RouterLink],
   providers: [HistoryService],
   exports: [HistoryComponent],
 })

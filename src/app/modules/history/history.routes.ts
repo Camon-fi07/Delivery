@@ -3,6 +3,6 @@ import { HistoryListComponent } from './components/history-list/history-list.com
 import { OrderDetailsComponent } from './components/order-details/order-details.component';
 
 export const historyRoutes: Routes = [
-  { path: 'list', component: HistoryListComponent },
-  { path: 'details', component: OrderDetailsComponent },
+  { path: '', component: HistoryListComponent },
+  { path: 'details/:id', component: OrderDetailsComponent },
 ];

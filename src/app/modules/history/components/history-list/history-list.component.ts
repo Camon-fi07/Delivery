@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HistoryService } from 'modules/history/services/history.service';
 import { DeliveryOrder } from 'modules/history/types/Order';
+import { TextType } from 'shared/UI/text/text.types';
 
 @Component({
   selector: 'history-list',
@@ -9,12 +10,12 @@ import { DeliveryOrder } from 'modules/history/types/Order';
 })
 export class HistoryListComponent {
   orderList!: DeliveryOrder[];
+  TextType = TextType;
 
   constructor(private historyService: HistoryService) {
     historyService.getOrderList().subscribe({
       next: (res) => {
-        console.log(res);
-        this.orderList = res;
+        this.orderList = res.orders;
       },
     });
   }
