@@ -23,6 +23,6 @@ export class HistoryCardComponent implements OnInit {
 
     this.orderStatus = StatusName[this.order.status];
 
-    this.detailsLink = `history/details/${this.order._id}`;
+    this.detailsLink = `details/${this.order._id}`;
   }
 }
