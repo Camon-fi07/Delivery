@@ -1,5 +1,6 @@
 import { Package } from './Package';
 import { Address, Point, SpecialPoint } from './Point';
+import { BaseResponse } from './Response';
 import { Payer, UserDeliveryInfo } from './User';
 
 export enum DeliveryType {
@@ -27,9 +28,7 @@ export interface CalculateData {
   receiverPoint: SpecialPoint;
 }
 
-export interface CalculateDeliveryResponse {
-  success: boolean;
-  reason: string;
+export interface CalculateDeliveryResponse extends BaseResponse {
   options: DeliveryOption[];
 }
 

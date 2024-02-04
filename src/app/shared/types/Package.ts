@@ -1,3 +1,5 @@
+import { BaseResponse } from './Response';
+
 export interface Package {
   length: number;
   width: number;
@@ -10,8 +12,6 @@ export interface SpecialPackage extends Package {
   name: string;
 }
 
-export interface PackageTypesResponse {
-  success: boolean;
-  reason: string;
+export interface PackageTypesResponse extends BaseResponse {
   packages: SpecialPackage[];
 }

@@ -1,3 +1,5 @@
+import { BaseResponse } from './Response';
+
 export interface SingInDto {
   phone: string;
   code: number;
@@ -19,19 +21,15 @@ export interface User {
   city?: string;
 }
 
-export interface SessionResponse {
-  success: boolean;
+export interface SessionResponse extends BaseResponse {
   user: User;
-  reason: string;
 }
 
 export interface SignInResponse extends SessionResponse {
   token: string;
 }
 
-export interface OtpResponse {
-  success: boolean;
-  reason: string;
+export interface OtpResponse extends BaseResponse {
   retryDelay: number;
 }
 

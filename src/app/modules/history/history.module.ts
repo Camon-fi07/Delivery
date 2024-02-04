@@ -9,10 +9,21 @@ import { ButtonComponent } from 'shared/UI/button/button.component';
 import { ModalComponent } from 'shared/UI/modal/modal.component';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { HistoryService } from './services/history.service';
+import { CardComponent } from 'shared/UI/card/card.component';
+import { CancelModalComponent } from 'components/cancel-modal/cancel-modal.component';
 
 @NgModule({
   declarations: [HistoryComponent, HistoryCardComponent, HistoryListComponent, OrderDetailsComponent],
-  imports: [CommonModule, TextComponent, ButtonComponent, ModalComponent, RouterOutlet, RouterLink],
+  imports: [
+    CommonModule,
+    TextComponent,
+    ButtonComponent,
+    ModalComponent,
+    RouterOutlet,
+    RouterLink,
+    CardComponent,
+    CancelModalComponent,
+  ],
   providers: [HistoryService],
   exports: [HistoryComponent],
 })
