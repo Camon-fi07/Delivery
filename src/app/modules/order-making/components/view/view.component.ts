@@ -37,6 +37,10 @@ export class ViewComponent {
     this.option = orderInfoService.option!;
   }
 
+  handleCancel() {
+    this.router.navigate(['']);
+  }
+
   toggleIsCancel() {
     this.isCancel = !this.isCancel;
   }

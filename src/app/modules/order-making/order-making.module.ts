@@ -17,7 +17,7 @@ import { PaidComponent } from './components/paid/paid.component';
 import { ViewComponent } from './components/view/view.component';
 import { CardComponent } from 'shared/UI/card/card.component';
 import { SuccessModalComponent } from './components/success-modal/success-modal.component';
-import { CancelModalComponent } from './components/cancel-modal/cancel-modal.component';
+import { CancelModalComponent } from '../../components/cancel-modal/cancel-modal.component';
 import { ModalComponent } from 'shared/UI/modal/modal.component';
 
 @NgModule({
@@ -29,7 +29,6 @@ import { ModalComponent } from 'shared/UI/modal/modal.component';
     PaidComponent,
     ViewComponent,
     SuccessModalComponent,
-    CancelModalComponent,
   ],
   imports: [
     CommonModule,
@@ -41,6 +40,7 @@ import { ModalComponent } from 'shared/UI/modal/modal.component';
     ButtonComponent,
     ControlsComponent,
     ModalComponent,
+    CancelModalComponent,
     RouterModule.forChild(orderMakingRoutes),
   ],
   exports: [OrderMakingComponent],

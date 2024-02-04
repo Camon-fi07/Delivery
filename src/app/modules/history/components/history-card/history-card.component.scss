@@ -1,0 +1,43 @@
+.card {
+  padding: 20px;
+  border: 1px solid var(--Border-ExtraLight);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border-radius: 10px;
+}
+
+.value {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  & > *:first-child {
+    color: var(--Text-Tertiary);
+  }
+}
+
+.status {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.icon {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--Indicator-Attention);
+}
+
+.success {
+  background-color: var(--Indicator-Positive);
+}
+
+.cancel {
+  background-color: var(--Indicator-Error);
+}
+
+a {
+  color: var(--Text-Quartenery);
+}

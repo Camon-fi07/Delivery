@@ -1,0 +1,16 @@
+.order_list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 90%;
+  margin-inline: auto;
+  gap: 15px;
+
+  & > * {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+}
+
+@media (max-wdith: 768px) {
+}

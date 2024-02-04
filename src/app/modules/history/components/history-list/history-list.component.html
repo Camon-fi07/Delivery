@@ -1,0 +1,4 @@
+<div class="order_list">
+  <text [textType]="TextType.TITLE">История</text>
+  <history-card *ngFor="let item of orderList" [order]="item"></history-card>
+</div>

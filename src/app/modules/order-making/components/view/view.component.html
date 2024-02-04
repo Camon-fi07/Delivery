@@ -37,5 +37,5 @@
     <text *ngIf="error" [textType]="TextType.ERROR">{{ error }}</text>
   </div>
   <success-modal [isOpen]="isSuccess"></success-modal>
-  <cancel-modal [isOpen]="isCancel" (closeModal)="toggleIsCancel()"></cancel-modal>
+  <cancel-modal [isOpen]="isCancel" (closeModal)="toggleIsCancel()" (cancelOrder)="handleCancel()"></cancel-modal>
 </div>
