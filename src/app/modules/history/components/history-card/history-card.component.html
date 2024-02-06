@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="value">
+    <text [textType]="TextType.SMALL_TEXT">Номер заказа</text>
+    <text [textType]="TextType.VALUE">{{ order._id }}</text>
+  </div>
+  <div class="value">
+    <text [textType]="TextType.SMALL_TEXT">Статус</text>
+    <div class="status">
+      <div [ngClass]="{ icon: true, success: order.status === 3, cancel: order.status === 4 }"></div>
+      <text [textType]="TextType.VALUE">{{ orderStatus }}</text>
+    </div>
+  </div>
+  <div class="value">
+    <text [textType]="TextType.SMALL_TEXT">Адрес доставки</text>
+    <text [textType]="TextType.VALUE">{{ address }}</text>
+  </div>
+
+  <a [routerLink]="detailsLink"><text [textType]="TextType.BUTTON_UNDERLINE_SMALL">Подробнее</text></a>
+</div>

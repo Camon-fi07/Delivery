@@ -1,0 +1,17 @@
+<ul class="options">
+  <li [class]="{ express: option.type === 'EXPRESS' }" *ngFor="let option of options">
+    <button (click)="handleChose(option)" class="option">
+      <div class="image">
+        <img
+          [src]="option.type === 'EXPRESS' ? 'assets/icons/expressDelivery.svg' : 'assets/icons/defaultDelivery.svg'"
+          alt=""
+        />
+      </div>
+      <div class="description">
+        <text [textType]="TextType.SMALL_TEXT">{{ option.name }}</text>
+        <text [textType]="TextType.SMALL_TITLE">{{ option.price }} ₽</text>
+        <text [textType]="TextType.SMALL_TEXT">{{ option.days }} рабочий день</text>
+      </div>
+    </button>
+  </li>
+</ul>

@@ -1,0 +1,43 @@
+.modal {
+  position: fixed;
+  min-width: 100vw;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  background-color: var(--Background-Blur);
+  backdrop-filter: blur(2px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  max-width: 80%;
+  background-color: var(--Background-Primary);
+  border-radius: 20px;
+  padding: 50px;
+  position: relative;
+  overflow: auto;
+  max-height: 80vh;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: fit-content;
+}
+
+@media (max-width: 768px) {
+  .content {
+    border-radius: 0;
+    width: 100vw;
+    max-width: 100vw;
+    max-height: 100vh;
+    height: 100vh;
+  }
+
+  .close {
+    left: 10px;
+  }
+}

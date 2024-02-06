@@ -1,0 +1,41 @@
+<div class="view">
+  <text [textType]="TextType.TITLE">Проверка данных</text>
+  <div class="cards">
+    <card
+      (changeEmitter)="handleCardEditClick('user/false')"
+      name="Получатель"
+      [values]="receiver"
+      [canChange]="true"
+    ></card>
+    <card
+      (changeEmitter)="handleCardEditClick('user/true')"
+      name="Отправитель"
+      [values]="sender"
+      [canChange]="true"
+    ></card>
+    <card
+      (changeEmitter)="handleCardEditClick('address/true')"
+      name="Откуда забрать"
+      [values]="senderAddress"
+      [canChange]="true"
+    ></card>
+    <card
+      (changeEmitter)="handleCardEditClick('address/false')"
+      name="Куда доставить"
+      [values]="receiverAddress"
+      [canChange]="true"
+    ></card>
+  </div>
+  <div class="short_info">
+    <text [textType]="TextType.SMALL_TITLE">Итого: {{ option.price }}₽</text>
+    <text [textType]="TextType.VALUE">Тариф: {{ option.name }}</text>
+    <text [textType]="TextType.VALUE">Срок: {{ option.days }} рабочий день</text>
+  </div>
+  <div class="panel">
+    <UI-button (clickButton)="toggleIsCancel()" type="button" [buttonStyle]="ButtonStyles.SIMPLE">Отменить</UI-button>
+    <UI-button (clickButton)="handleSubmit()" type="button" [buttonStyle]="ButtonStyles.BRAND">Отправить</UI-button>
+    <text *ngIf="error" [textType]="TextType.ERROR">{{ error }}</text>
+  </div>
+  <success-modal [isOpen]="isSuccess"></success-modal>
+  <cancel-modal [isOpen]="isCancel" (closeModal)="toggleIsCancel()" (cancelOrder)="handleCancel()"></cancel-modal>
+</div>

@@ -1,17 +1,23 @@
-<div class="dropdown">
-  <button (blur)="handleBlur($event)" #panel class="panel" (click)="toggle()">
-    <text [textType]="labelType">{{ chosenVariant }}</text>
-    <img [ngClass]="{ open: isOpen }" src="assets/icons/arrow.svg" alt="ccs" />
+<div #content class="dropdown">
+  <button type="button" (blur)="handleBlur($event)" class="panel" (click)="toggle()">
+    <div class="title">
+      <img *ngIf="icon" [src]="icon" alt="" />
+      <text [textType]="TextType.VALUE">
+        {{ chosenVariant }}
+      </text>
+    </div>
+    <img [ngClass]="{ arrow: true, open: isOpen }" src="assets/icons/arrow.svg" alt="ccs" />
   </button>
-  <div *ngIf="isOpen" class="content">
+  <div [ngStyle]="{ height: contentHeight + 'px' }" [ngClass]="{ content: true, hidden: !isOpen, top: isTopOpen }">
     <ng-container><ng-content></ng-content></ng-container>
   </div>
 </div>
 <div class="short_variants">
   <UI-button
-    [buttonStyle]="buttonUnderline"
-    *ngFor="let item of shortVariants; index as i"
-    (clickButton)="handleShortBtnClick(i)"
+    type="button"
+    [buttonStyle]="ButtonStyles.SIMPLE_UNDERLINE"
+    *ngFor="let item of shortVariants; let index = index"
+    (clickButton)="handleShortBtnClick(index)"
     >item
   </UI-button>
 </div>

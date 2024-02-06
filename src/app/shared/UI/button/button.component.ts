@@ -16,10 +16,10 @@ export class ButtonComponent implements OnInit {
   @Input() type: ButtonTypes = 'button';
   @Input() isDisabled = false;
   @Output() clickButton = new EventEmitter();
-  textType!: TextType;
+  buttonTextType!: TextType;
 
   ngOnInit() {
-    this.textType =
+    this.buttonTextType =
       this.buttonStyle === ButtonStyles.SIMPLE_UNDERLINE ? TextType.BUTTON_UNDERLINE_SMALL : TextType.BUTTON_TEXT;
   }
 }

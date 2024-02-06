@@ -20,8 +20,8 @@ export class FieldComponent implements OnInit {
   @Input() label?: string;
   @Input({ required: true }) formGroup!: FormGroup;
   @Input() placeholder = '';
-  labelType = TextType.LABEL;
-  errorType = TextType.ERROR;
+  @Input() isRow = false;
+  TextType = TextType;
   error!: string;
 
   ngOnInit() {

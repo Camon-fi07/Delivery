@@ -16,15 +16,23 @@ export class DropdownComponent {
   @Input() chosenVariant = 'Не выбран';
   @Input() shortVariants?: string[];
   @Input() isCloseOnClick = true;
+  @Input() contentHeight = 300;
+  @Input() icon?: string;
   @Output() shortBtnClick? = new EventEmitter<number>();
-  @ViewChild('panel') panelElement!: ElementRef;
-
+  @ViewChild('content') element!: ElementRef;
+  isTopOpen = false;
   isOpen = false;
-  labelType = TextType.VALUE;
-  buttonUnderline = ButtonStyles.SIMPLE_UNDERLINE;
+  TextType = TextType;
+  ButtonStyles = ButtonStyles;
 
   toggle() {
     this.isOpen = !this.isOpen;
+
+    if (this.isOpen) {
+      if (window.innerHeight - this.element.nativeElement.getBoundingClientRect().bottom < this.contentHeight) {
+        this.isTopOpen = true;
+      } else this.isTopOpen = false;
+    }
   }
 
   handleShortBtnClick(index: number) {
@@ -32,13 +40,10 @@ export class DropdownComponent {
   }
 
   handleBlur(event: FocusEvent) {
-    if (!event.relatedTarget) this.toggle();
+    if (!event.relatedTarget) this.isOpen = false;
     else if (this.isCloseOnClick)
       setTimeout(() => {
-        this.toggle();
+        this.isOpen = false;
       }, 100);
-    else {
-      this.panelElement.nativeElement.focus();
-    }
   }
 }

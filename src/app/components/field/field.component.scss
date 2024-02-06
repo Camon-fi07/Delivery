@@ -5,6 +5,13 @@
   max-width: 464px;
 }
 
+.row {
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+  justify-content: space-between;
+}
+
 .input {
   border: 1px solid var(--Border-Light);
   border-radius: 8px;

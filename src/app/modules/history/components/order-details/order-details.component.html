@@ -1,0 +1,17 @@
+<div class="order_detail">
+  <text [textType]="TextType.TITLE">Детали</text>
+  <div class="cards">
+    <card name="Получатель" [values]="receiver"></card>
+    <card name="Отправитель" [values]="sender"></card>
+    <card name="Откуда забрать" [values]="senderAddress"></card>
+    <card name="Куда доставить" [values]="receiverAddress"></card>
+  </div>
+  <ng-container *ngIf="orderDetail.status !== 4">
+    <UI-button (clickButton)="toggleIsCancel()" type="button" [buttonStyle]="ButtonType.BRAND">Отменить</UI-button>
+    <cancel-modal
+      (cancelOrder)="handleCancelOrder()"
+      [isOpen]="isCancel"
+      (closeModal)="toggleIsCancel()"
+    ></cancel-modal>
+  </ng-container>
+</div>
