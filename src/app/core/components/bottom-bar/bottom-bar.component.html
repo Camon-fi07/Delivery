@@ -1,0 +1,27 @@
+<footer>
+  <a routerLink="" class="item">
+    <img src="assets/icons/calculator.svg" alt="Главная" />
+    <text [textType]="TextType.CARD_TITLE">Расчёт</text>
+  </a>
+  <ng-container *ngIf="isAuth">
+    <a routerLink="profile" class="item">
+      <img src="assets/icons/union.svg" alt="" />
+      <text [textType]="TextType.CARD_TITLE">Профиль</text>
+    </a>
+    <a routerLink="history" class="item">
+      <img src="assets/icons/clock.svg" alt="" />
+      <text [textType]="TextType.CARD_TITLE">История</text>
+    </a>
+  </ng-container>
+  @if (isAuth) {
+    <button (click)="handleLogOut()" type="button" class="item">
+      <img src="assets/icons/exit.svg" alt="" />
+      <text [textType]="TextType.CARD_TITLE">Выйти</text>
+    </button>
+  } @else {
+    <a routerLink="auth" class="item">
+      <img src="assets/icons/union.svg" alt="" />
+      <text [textType]="TextType.CARD_TITLE">Войти</text>
+    </a>
+  }
+</footer>
