@@ -4,7 +4,7 @@ import { MainPageComponent } from './main-page.component';
 import { CalculationInfo } from 'core/services/calculationInfo.service';
 
 export default {
-  title: 'Pages/mainPage',
+  title: 'Pages/MainPage',
   component: MainPageComponent,
   decorators: moduleMetadata({
     imports: [HttpClientModule],
