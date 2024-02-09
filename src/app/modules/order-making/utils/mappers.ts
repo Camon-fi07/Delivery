@@ -6,7 +6,7 @@ export const translateUserInfo = (user: UserDeliveryInfo): CardData[] => {
   return [
     {
       name: 'ФИО',
-      value: `${user.lastname} ${user.firstname} ${user.middlename}`,
+      value: `${user.lastname} ${user.firstname} ${user.middlename || ''}`,
     },
     {
       name: 'Телефон',
