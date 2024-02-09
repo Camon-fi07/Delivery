@@ -7,10 +7,11 @@ import { OrderDetailsComponent } from './components/order-details/order-details.
 import { TextComponent } from 'shared/UI/text/text.component';
 import { ButtonComponent } from 'shared/UI/button/button.component';
 import { ModalComponent } from 'shared/UI/modal/modal.component';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { RouterLink, RouterModule, RouterOutlet, provideRouter } from '@angular/router';
 import { HistoryService } from './services/history.service';
 import { CardComponent } from 'shared/UI/card/card.component';
 import { CancelModalComponent } from 'components/cancel-modal/cancel-modal.component';
+import { historyRoutes } from './history.routes';
 
 @NgModule({
   declarations: [HistoryComponent, HistoryCardComponent, HistoryListComponent, OrderDetailsComponent],
@@ -23,8 +24,9 @@ import { CancelModalComponent } from 'components/cancel-modal/cancel-modal.compo
     RouterLink,
     CardComponent,
     CancelModalComponent,
+    RouterModule.forChild(historyRoutes),
   ],
-  providers: [HistoryService],
+  providers: [HistoryService, provideRouter(historyRoutes)],
   exports: [HistoryComponent],
 })
 export class HistoryModule {}
